@@ -2,320 +2,848 @@
 <html lang="it">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sparkling Pockets – Band per eventi, matrimoni e feste</title>
-<meta name="description" content="Sparkling Pockets: party band di sette elementi. Pop, disco e soul dal vivo per matrimoni, feste ed eventi aziendali. Richiedi un preventivo.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sparkling Pockets · Party band per matrimoni, feste ed eventi</title>
+<meta name="description" content="Sparkling Pockets è una party band di sette elementi con due voci soliste: pop, disco e soul degli ultimi quarant'anni dal vivo, per matrimoni, feste private ed eventi aziendali. Anche in formazione acustica.">
+<meta name="theme-color" content="#F2ECE2">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sparkling Pockets · Party & More">
+<meta property="og:description" content="Sette musicisti, due voci e quarant'anni di pop, disco e soul dal vivo. Per matrimoni, feste ed eventi.">
+<meta property="og:image" content="assets/og-image.jpg">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#0e0a14; --bg2:#161020; --card:#1d1529; --line:#33274a;
-  --text:#f3eef9; --muted:#b7accb; --gold:#d9b25f; --gold2:#f0d28c; --violet:#9b4dff; --pink:#ff4fb0;
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/band-palazzo-1200.webp" imagesrcset="assets/band-palazzo-1200.webp 1200w, assets/band-palazzo-2400.webp 2400w" imagesizes="100vw">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  "name": "Sparkling Pockets",
+  "slogan": "Party & More",
+  "genre": ["Pop", "Disco", "Soul", "Funk"],
+  "email": "sparklingpockets@gmail.com",
+  "sameAs": ["https://www.instagram.com/sparkling_pockets", "https://www.youtube.com/@SparklingPockets"],
+  "member": [
+    {"@type": "Person", "name": "Krensly Taveras"},
+    {"@type": "Person", "name": "Federica Rini"},
+    {"@type": "Person", "name": "Angelo Torregrossa"},
+    {"@type": "Person", "name": "Matteo Ghiringhelli"},
+    {"@type": "Person", "name": "Mattia Rizzato"},
+    {"@type": "Person", "name": "Marco Brambilla"},
+    {"@type": "Person", "name": "Giordano Rizzato"}
+  ]
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-h1,h2,h3{font-family:'Playfair Display',serif;font-weight:600;line-height:1.15}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-section{padding:88px 0}
-.eyebrow{color:var(--gold);letter-spacing:.2em;text-transform:uppercase;font-size:.75rem;font-weight:600;margin-bottom:12px}
-h2{font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:16px}
-.lead{color:var(--muted);max-width:640px}
-.btn{display:inline-block;padding:14px 26px;border-radius:999px;font-weight:600;font-size:.95rem;border:1px solid transparent;cursor:pointer;transition:.2s;font-family:inherit}
-.btn-gold{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#1b1204}
-.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(217,178,95,.35)}
-.btn-ghost{border-color:rgba(255,255,255,.35);color:#fff}
-.btn-ghost:hover{background:rgba(255,255,255,.1)}
+</script>
+<style>
+/* ───────────────────────── tokens ───────────────────────── */
+:root{
+  --paper:#F2ECE2; --paper-2:#E9E0D2; --paper-line:#B9AB96; --paper-text:#120D10; --paper-muted:#463C42;
+  --ink:#141015; --ink-2:#1D171E; --ink-line:#382E37; --ink-text:#F3ECE4; --ink-muted:#A99EA5;
+  --fuchsia:#B80C5F; --fuchsia-hi:#F2509A; --cobalt:#2B46E0; --gold:#C6A263; --gold-hi:#E4CC97;
+  --serif:'Bodoni Moda', Didot, 'Bodoni 72', Georgia, serif;
+  --sans:'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  /* type scale: Bodoni Moda (serif) for display text, Archivo (sans) for everything else */
+  --t-display:clamp(2.5rem, 1.2rem + 4.6vw, 5.6rem);
+  --t-xl:clamp(1.8rem, 1rem + 2.6vw, 3.6rem);
+  --t-l:clamp(1.5rem, 1.1rem + 1.2vw, 2.3rem);
+  --t-m:clamp(1.2rem, 1rem + .6vw, 1.6rem);
+  --t-small:.875rem;
+  --t-label:.74rem;
+  --t-ui:.8rem;
+  --gutter:clamp(16px, 4vw, 56px);
+  --max:1400px;
+  --header:68px;
+  --ease:cubic-bezier(.2,.7,.1,1);
+}
+/* every serif role shares one optical size so hairlines stay readable */
+.display,.h3,.mast,.brand,.sheet nav a,.hero-foot .lead,.statement,.credits dd,.tempo-time b,.tempo-time .name,.per ul,.roster .who,.sides button b,.tracklist .t,.qa summary,.direct .v,.f input[type=date],.foot .big,.vinyl .lbl{font-optical-sizing:none;font-variation-settings:'opsz' 22}
+*,*::before,*::after{box-sizing:border-box}
+*{margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:var(--header)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{font-weight:450;font-family:var(--sans);font-size:clamp(16px, .95rem + .2vw, 18px);line-height:1.55;background:var(--paper);color:var(--paper-text);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip}
+img,video{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+::selection{background:var(--fuchsia);color:#fff}
+:focus-visible{outline:2px solid var(--fuchsia);outline-offset:3px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:fixed;left:12px;top:-60px;z-index:200;background:var(--ink);color:var(--ink-text);padding:10px 14px;text-decoration:none}
+.skip:focus{top:12px}
 
-/* nav */
-header{position:fixed;inset:0 0 auto 0;z-index:50;transition:.3s}
-header.scrolled{background:rgba(14,10,20,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
-.nav img{height:34px}
-.nav ul{display:flex;gap:28px;list-style:none;font-size:.9rem}
-.nav ul a{opacity:.85}.nav ul a:hover{opacity:1;color:var(--gold2)}
-.nav .btn{padding:10px 20px;font-size:.85rem}
-.burger{display:none;background:none;border:0;color:#fff;font-size:1.6rem;cursor:pointer}
+/* themes: each section declares its own palette */
+.t-paper{--bg:var(--paper);--fg:var(--paper-text);--muted:var(--paper-muted);--line:var(--paper-line);background:var(--bg);color:var(--fg)}
+.t-paper2{--bg:var(--paper-2);--fg:var(--paper-text);--muted:var(--paper-muted);--line:#B3A48D;background:var(--bg);color:var(--fg)}
+.t-ink{--bg:var(--ink);--fg:var(--ink-text);--muted:var(--ink-muted);--line:var(--ink-line);background:var(--bg);color:var(--fg)}
+.t-fuchsia{--bg:var(--fuchsia);--fg:#fff;--muted:rgba(255,255,255,.8);--line:rgba(255,255,255,.32);background:var(--bg);color:var(--fg)}
 
-/* hero */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;text-align:center;padding:120px 0 80px;
-  background:linear-gradient(180deg,rgba(14,10,20,.55),rgba(14,10,20,.85) 80%,var(--bg)),url('https://sparklingpockets.weebly.com/uploads/1/3/6/5/13657163/background-images/594887314.jpg') center/cover}
-.hero img.logo{width:min(560px,86%);margin:0 auto 18px}
-.hero .tag{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2rem);color:var(--gold2);margin-bottom:12px}
-.hero p{color:#e6dff2;max-width:560px;margin:0 auto 30px}
-.hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.badges{display:flex;gap:10px 28px;justify-content:center;flex-wrap:wrap;margin-top:44px;color:var(--muted);font-size:.85rem}
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
 
-/* events */
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
-.ev{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 22px;transition:.25s}
-.ev:hover{transform:translateY(-4px);border-color:var(--gold)}
-.ev h3{font-size:1.2rem;margin-bottom:8px}
-.ev p{color:var(--muted);font-size:.9rem}
+/* type */
+.label{font-family:var(--sans);font-stretch:75%;font-weight:600;font-size:var(--t-label);letter-spacing:.14em;text-transform:uppercase;line-height:1.3}
+.display{font-family:var(--serif);font-weight:600;font-size:var(--t-display);line-height:1;letter-spacing:-.025em}
+.display em,.h3 em{font-style:italic;font-weight:500}
+.h3{font-family:var(--serif);font-weight:600;font-size:var(--t-l);line-height:1.06;letter-spacing:-.015em}
+.muted{color:var(--muted)}
+.accent{color:var(--fuchsia)}
+.t-ink .accent{color:var(--fuchsia-hi)}
 
-/* formulas */
-.alt{background:var(--bg2)}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
-.formula{border:1px solid var(--line);border-radius:20px;padding:32px;background:var(--card);position:relative}
-.formula.feat{border-color:var(--gold);background:linear-gradient(180deg,#261a38,var(--card))}
-.formula .pill{position:absolute;top:-12px;left:28px;background:var(--gold);color:#1b1204;font-size:.7rem;font-weight:700;padding:4px 12px;border-radius:999px;letter-spacing:.08em;text-transform:uppercase}
-.formula h3{font-size:1.5rem;margin-bottom:6px}
-.formula .sub{color:var(--gold2);font-size:.85rem;margin-bottom:16px}
-.formula ul{list-style:none;color:var(--muted);font-size:.92rem}
-.formula li{padding:6px 0;border-bottom:1px solid var(--line)}
-.formula li:last-child{border:0}
+/* buttons: square, condensed, with an arrow that moves */
+.btn{--b:currentColor;display:inline-flex;align-items:center;gap:.9em;padding:1.05em 1.45em;border:1.5px solid var(--b);background:transparent;font-family:var(--sans);font-stretch:75%;font-weight:600;font-size:var(--t-ui);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.btn .arr{display:inline-block;transition:transform .35s var(--ease)}
+.btn:hover .arr{transform:translateX(5px)}
+.btn-solid{background:var(--fuchsia);border-color:var(--fuchsia);color:#fff}
+.btn-solid:hover{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.btn-line:hover{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.t-fuchsia .btn-solid{background:var(--ink);border-color:var(--ink)}
+.t-fuchsia .btn-solid:hover{background:#fff;color:var(--ink);border-color:#fff}
 
-/* steps */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:44px}
-.step .n{font-family:'Playfair Display',serif;font-size:3.4rem;color:transparent;-webkit-text-stroke:1px var(--gold);line-height:1}
-.step h3{font-size:1.3rem;margin:10px 0 8px}
-.step p{color:var(--muted);font-size:.93rem}
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 
-/* team */
-.team{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
-.member{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden}
-.member .ph{aspect-ratio:3/4;background:radial-gradient(circle at 50% 30%,#3a2158,#150e20);overflow:hidden}
-.member img{width:100%;height:100%;object-fit:cover;object-position:top}
-.member .info{padding:14px 16px}
-.member b{display:block;font-size:.98rem}
-.member span{color:var(--gold2);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+/* ───────────────────────── header ───────────────────────── */
+.hdr{position:fixed;inset:0 0 auto;z-index:80;height:var(--header);color:var(--paper-text);transition:background .35s,color .35s,box-shadow .35s}
+.hdr.scrolled{background:color-mix(in srgb, var(--paper) 88%, transparent);backdrop-filter:blur(12px) saturate(1.2);-webkit-backdrop-filter:blur(12px) saturate(1.2);box-shadow:0 1px 0 var(--paper-line)}
+.hdr.dark{color:var(--ink-text)}
+.hdr.dark.scrolled{background:color-mix(in srgb, var(--ink) 86%, transparent);box-shadow:0 1px 0 var(--ink-line)}
+.hdr .wrap{height:100%;display:flex;align-items:center;gap:28px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--serif);font-weight:600;font-size:1.12rem;letter-spacing:-.01em;white-space:nowrap;opacity:0;transform:translateY(-6px);transition:opacity .4s,transform .4s;pointer-events:none}
+.hdr.scrolled .brand,.hdr.menu-open .brand{opacity:1;transform:none;pointer-events:auto}
+.brand img{height:34px;width:auto;margin-top:-6px}
+.nav{margin-left:auto;display:flex;align-items:center;gap:clamp(16px,2.2vw,34px)}
+.nav a{text-decoration:none;font-stretch:75%;font-weight:600;font-size:var(--t-ui);letter-spacing:.14em;text-transform:uppercase;position:relative;padding:4px 0}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1.5px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.nav a:hover::after{transform:scaleX(1)}
+.hdr .btn{padding:.85em 1.1em}
+.hdr .btn-solid:hover{background:var(--paper-text);border-color:var(--paper-text);color:var(--paper)}
+.hdr.dark .btn-solid:hover{background:var(--ink-text);border-color:var(--ink-text);color:var(--ink)}
+.burger{display:none;margin-left:auto;width:44px;height:44px;background:none;border:0;cursor:pointer;position:relative}
+.burger span{position:absolute;left:10px;right:10px;height:1.5px;background:currentColor;transition:transform .35s var(--ease),top .35s var(--ease)}
+.burger span:nth-child(1){top:18px}.burger span:nth-child(2){top:25px}
+.menu-open .burger span:nth-child(1){top:21.5px;transform:rotate(45deg)}
+.menu-open .burger span:nth-child(2){top:21.5px;transform:rotate(-45deg)}
 
-/* video */
-.videos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
-.vid{aspect-ratio:16/9;border-radius:16px;border:1px dashed var(--line);background:linear-gradient(135deg,#251838,#120c1c);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--muted);font-size:.85rem;text-align:center;padding:12px}
-.vid .play{width:54px;height:54px;border-radius:50%;background:var(--gold);color:#1b1204;display:grid;place-items:center;font-size:1.2rem}
+.sheet{position:fixed;inset:0;z-index:70;background:var(--ink);color:var(--ink-text);display:flex;flex-direction:column;justify-content:flex-end;padding:calc(var(--header) + 24px) var(--gutter) calc(32px + env(safe-area-inset-bottom));clip-path:inset(0 0 100% 0);transition:clip-path .6s var(--ease);visibility:hidden}
+.sheet.open{clip-path:inset(0);visibility:visible}
+.sheet nav{display:flex;flex-direction:column;gap:2px}
+.sheet nav a{font-family:var(--serif);font-weight:600;font-size:var(--t-display);line-height:1.08;text-decoration:none;letter-spacing:-.02em}
+.sheet .label{margin-top:28px;color:var(--ink-muted)}
+.sheet .btn{margin-top:16px;align-self:flex-start}
 
-/* repertoire */
-.tabs{display:flex;gap:10px;flex-wrap:wrap;margin:30px 0 20px}
-.tab{padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--muted);cursor:pointer;font-family:inherit;font-size:.88rem}
-.tab.on{background:var(--gold);color:#1b1204;border-color:var(--gold);font-weight:600}
-.songs{display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px;list-style:none}
-.songs li{padding:12px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}
-.songs li small{color:var(--muted)}
-.note{color:var(--muted);font-size:.85rem;margin-top:18px}
+/* ───────────────────────── hero (cover) ───────────────────────── */
+.hero{padding-top:calc(var(--header) + 6px)}
+.cover-strip{display:flex;justify-content:space-between;gap:16px;padding:10px 0 14px;border-bottom:1px solid var(--line)}
+.mast-wrap{padding:clamp(10px,1.6vw,22px) 0 0;overflow:hidden}
+.mast{font-family:var(--serif);font-weight:600;font-size:10.4vw;line-height:.86;padding-bottom:.3em;letter-spacing:-.04em;white-space:nowrap;width:max-content}
+.mast .s{display:inline-block;height:1.26em;width:auto;vertical-align:baseline;margin:0 -.1em -.035em -.06em;position:relative;z-index:1}
+.mast .w{display:inline}
+.mast .mbr{display:none}
+.mast .ch{display:inline-block;opacity:0;transform:translateY(.25em);animation:up 1s var(--ease) forwards;animation-delay:calc(var(--i) * 32ms + .1s)}
+.mast .s{opacity:0;animation:fade 1.4s var(--ease) .05s forwards}
+@keyframes up{to{opacity:1;transform:none}}
+@keyframes fade{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.mast .ch,.mast .s{animation:none;opacity:1;transform:none}}
 
-/* reviews */
-.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
-.rev{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
-.rev .stars{color:var(--gold);margin-bottom:10px;letter-spacing:3px}
-.rev p{font-size:.95rem;color:#ddd4ea;margin-bottom:14px}
-.rev small{color:var(--muted)}
+.cover{position:relative;margin:0}
+.cover img{width:100%;height:max(300px, calc(100svh - 10vw - 250px));object-fit:cover;object-position:50% 46%}
+.cover figcaption{position:absolute;left:14px;bottom:12px;color:#fff;opacity:.82;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.vinyl.spin .disc,.vinyl.spin .lbl{animation:none}}
 
-/* contact */
-.contact{background:linear-gradient(135deg,#1d1030,#0e0a14);border-top:1px solid var(--line)}
-.cgrid{display:grid;grid-template-columns:1fr 1.2fr;gap:50px;margin-top:10px}
-.cinfo p{color:var(--muted);margin-bottom:24px}
-.cinfo ul{list-style:none}
-.cinfo li{padding:8px 0}
-.cinfo li a:hover{color:var(--gold2)}
-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;background:var(--card);border:1px solid var(--line);padding:28px;border-radius:20px}
-form .full{grid-column:1/-1}
-label{display:block;font-size:.78rem;color:var(--muted);margin-bottom:5px}
-input,select,textarea{width:100%;background:#120c1c;border:1px solid var(--line);color:var(--text);padding:12px 14px;border-radius:10px;font-family:inherit;font-size:.92rem}
-input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);border-color:transparent}
-textarea{min-height:100px;resize:vertical}
-.ok{display:none;grid-column:1/-1;background:#1f3a2a;border:1px solid #2f6b47;padding:12px 16px;border-radius:10px;font-size:.9rem}
+.hero-foot{display:grid;grid-template-columns:repeat(12,1fr);gap:20px var(--gutter);padding:26px 0 clamp(56px,7vw,96px);align-items:start}
+.hero-foot .lead{grid-column:1 / span 6;font-family:var(--serif);font-weight:500;font-size:var(--t-m);line-height:1.3;letter-spacing:-.01em}
+.hero-foot .lead em{font-style:italic;font-weight:500;color:var(--fuchsia)}
+.hero-foot .cta{grid-column:7 / span 3;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.hero-foot .facts{grid-column:10 / span 3;list-style:none;border-top:1px solid var(--line)}
+.hero-foot .facts li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:var(--t-small)}
+.hero-foot .facts li span:first-child{color:var(--muted)}
 
-footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:.85rem}
-.fwrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
-.fwrap a:hover{color:var(--gold2)}
-.demo-bar{background:var(--gold);color:#1b1204;text-align:center;font-size:.78rem;font-weight:600;padding:6px 12px;position:fixed;bottom:0;left:0;right:0;z-index:60}
+/* ───────────────────────── manifesto ───────────────────────── */
+.manifesto{padding:clamp(72px,10vw,150px) 0 clamp(64px,8vw,120px);border-top:1px solid var(--line)}
+.manifesto .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gutter)}
+.manifesto .label{grid-column:1 / span 2;padding-top:.9em}
+.statement{grid-column:3 / span 10;font-family:var(--serif);font-weight:500;font-size:var(--t-xl);line-height:1.12;letter-spacing:-.02em}
+.statement em{font-style:italic;font-weight:500}
+.credits{grid-column:3 / span 10;display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(44px,5vw,72px);border-top:1px solid var(--fg)}
+.credits div{padding:16px 18px 0 0}
+.credits dt{color:var(--muted);margin-bottom:6px}
+.credits dd{font-family:var(--serif);font-weight:500;font-size:var(--t-m);line-height:1.2}
 
-@media(max-width:900px){
-  .grid4,.team{grid-template-columns:repeat(2,1fr)}
-  .grid3,.steps,.videos,.reviews,.cgrid{grid-template-columns:1fr}
-  .songs{grid-template-columns:1fr}
-  .nav ul{display:none;position:absolute;top:72px;left:0;right:0;background:var(--bg);flex-direction:column;padding:20px;gap:16px;border-bottom:1px solid var(--line)}
-  .nav ul.open{display:flex}
+/* ───────────────────────── la serata (timeline) ───────────────────────── */
+.serata-head{padding:clamp(64px,8vw,120px) 0 clamp(28px,4vw,56px)}
+.serata-head .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gutter);align-items:end}
+.serata-head .display{grid-column:1 / span 8}
+.serata-head p{grid-column:9 / span 4;color:var(--muted);max-width:36ch}
+.tempo{padding:clamp(40px,5vw,72px) 0}
+.tempo + .tempo{border-top:1px solid var(--line)}
+.tempo .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px var(--gutter);align-items:start}
+.tempo-time{grid-column:1 / span 3;position:sticky;top:calc(var(--header) + 24px)}
+.tempo-time .label{color:var(--muted)}
+.tempo-time b{display:block;font-family:var(--serif);font-weight:600;font-size:var(--t-display);line-height:.95;letter-spacing:-.03em;margin:.12em 0 .06em;font-variant-numeric:lining-nums}
+.tempo-time .name{font-family:var(--serif);font-weight:500;font-size:var(--t-m)}
+.tempo-body{grid-column:4 / span 4}
+.tempo-body .formula{display:inline-flex;align-items:center;gap:8px;margin-bottom:18px}
+.tempo-body .formula::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--fuchsia)}
+.t-ink .tempo-body .formula::before{background:var(--fuchsia-hi)}
+.tempo-body p.txt{margin-top:16px;color:var(--muted);max-width:44ch}
+.ticks{list-style:none;margin-top:22px;border-top:1px solid var(--line)}
+.ticks li{padding:10px 0;border-bottom:1px solid var(--line);font-size:var(--t-small);display:flex;gap:12px}
+.ticks li::before{content:"—";color:var(--muted)}
+.tempo-media{grid-column:8 / span 5;justify-self:end;width:100%}
+.tempo-media.narrow{max-width:360px}
+.tempo-media figcaption{display:flex;justify-content:space-between;gap:12px;margin-top:10px;color:var(--muted)}
+.tempo-media .photo img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 30%}
+
+.dusk{height:clamp(160px,26vh,280px);background:linear-gradient(to bottom, var(--paper) 0%, #cbb7a6 22%, #6b4a5a 55%, #2a1c27 80%, var(--ink) 100%);display:flex;align-items:center;justify-content:center;color:#fff}
+.dusk .label{opacity:.85;text-shadow:0 1px 10px rgba(0,0,0,.25)}
+
+.per{padding:clamp(48px,6vw,88px) 0 clamp(72px,9vw,130px)}
+.per .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px var(--gutter);align-items:baseline;padding-top:22px;background:linear-gradient(var(--line),var(--line)) no-repeat top / 100% 1px;background-origin:content-box;background-clip:content-box}
+.per .label{grid-column:1 / span 3;color:var(--muted)}
+.per ul{grid-column:4 / span 9;list-style:none;display:flex;flex-wrap:wrap;gap:.1em .5em;font-family:var(--serif);font-weight:500;font-size:var(--t-xl);line-height:1.15;letter-spacing:-.02em}
+.per li:not(:last-child)::after{content:"/";margin-left:.5em;color:var(--fuchsia-hi);font-style:normal}
+.per .note{grid-column:4 / span 9;color:var(--muted);font-size:var(--t-small);margin-top:10px}
+
+/* players */
+.player{position:relative;background:#000;overflow:hidden}
+.player video{width:100%;height:100%;object-fit:cover}
+.player.v916{aspect-ratio:9/16}
+.player.v169{aspect-ratio:16/9}
+.player .play{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:flex-start;padding:16px;border:0;background:linear-gradient(to top, rgba(0,0,0,.55), transparent 45%);cursor:pointer;color:#fff;transition:background .3s}
+.player .play span{display:inline-flex;align-items:center;gap:12px}
+.player .play i{width:54px;height:54px;border-radius:50%;background:var(--fuchsia);display:grid;place-items:center;transition:transform .35s var(--ease)}
+.player .play i::before{content:"";border-left:13px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:4px}
+.player .play:hover i{transform:scale(1.08)}
+.player.on .play{display:none}
+
+/* ───────────────────────── line-up ───────────────────────── */
+.lineup{padding:clamp(80px,10vw,150px) 0 clamp(40px,5vw,80px);border-top:1px solid var(--line)}
+.lineup .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:40px var(--gutter);align-items:start}
+.lineup .photo{grid-column:1 / span 6;position:sticky;top:calc(var(--header) + 24px)}
+.lineup .photo img{width:100%}
+.lineup .photo figcaption{margin-top:10px;color:var(--muted)}
+.lineup .bill{grid-column:8 / span 5}
+.lineup .display{margin:14px 0 clamp(28px,3vw,44px)}
+.roster{list-style:none;border-top:1px solid var(--line)}
+.roster li{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:16px;padding:16px 0 14px;border-bottom:1px solid var(--line)}
+.roster .who{font-family:var(--serif);font-weight:500;font-size:var(--t-m);line-height:1.1;letter-spacing:-.015em}
+.roster .what{color:var(--gold-hi)}
+.lineup .after{margin-top:28px;color:var(--muted);max-width:46ch}
+
+.offstage{padding:clamp(40px,6vw,90px) 0 clamp(80px,9vw,140px)}
+.offstage-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:22px}
+.offstage-head .h3 em{color:var(--gold-hi)}
+.arrows{display:flex;gap:8px}
+.arrows button{width:46px;height:46px;border:1.5px solid var(--line);background:none;cursor:pointer;display:grid;place-items:center;transition:border-color .2s,background .2s}
+.arrows button:hover{border-color:var(--fg)}
+.strip{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-inline:var(--gutter);scroll-padding-inline:var(--gutter)}
+.strip::-webkit-scrollbar{display:none}
+.strip figure{flex:0 0 auto;scroll-snap-align:start;margin:0}
+.strip img{height:clamp(300px,42vw,520px);width:auto;object-fit:cover;background:var(--ink-2)}
+.strip .land img{aspect-ratio:3/2}
+.strip .port img{aspect-ratio:2/3}
+
+/* ───────────────────────── repertorio ───────────────────────── */
+.rep{padding:clamp(80px,10vw,150px) 0;overflow:hidden}
+.rep .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:40px var(--gutter);align-items:start}
+.rep-head{grid-column:1 / span 10;margin-bottom:clamp(8px,2vw,24px)}
+.rep-intro{grid-column:1 / span 5;position:relative;display:flex;flex-direction:column;align-items:flex-start}
+.rep-intro p{max-width:40ch;color:var(--muted)}
+.rep-intro .btn{margin-top:28px}
+.vinyl{position:relative;width:min(400px,86%);aspect-ratio:1;margin-top:clamp(36px,4vw,56px);margin-left:calc(var(--gutter) * -1 - 12%)}
+.vinyl .disc{position:absolute;inset:0;border-radius:50%;background:
+  radial-gradient(circle at 50% 50%, transparent 0 33%, rgba(255,255,255,.04) 33.4% 34%, transparent 34.4%),
+  conic-gradient(from 20deg, rgba(255,255,255,0) 0deg, rgba(255,255,255,.13) 25deg, rgba(255,255,255,0) 60deg, rgba(255,255,255,0) 180deg, rgba(255,255,255,.09) 210deg, rgba(255,255,255,0) 245deg),
+  repeating-radial-gradient(circle at 50% 50%, #121012 0 1.6px, #1d1a1d 1.6px 3.2px);
+  box-shadow:0 30px 60px -30px rgba(40,0,20,.7)}
+.vinyl .lbl{position:absolute;inset:32%;border-radius:50%;background:var(--paper);display:grid;place-items:center;text-align:center;color:var(--ink)}
+.vinyl .lbl img{height:44%;width:auto;margin-top:-6%}
+.vinyl .lbl span{position:absolute;bottom:17%;left:0;right:0;font-size:.52rem}
+.vinyl .lbl::after{content:"";position:absolute;width:6%;aspect-ratio:1;border-radius:50%;background:var(--ink);left:47%;top:47%}
+.vinyl.spin .disc,.vinyl.spin .lbl{animation:spin 3.4s linear infinite}
+
+.tracks{grid-column:7 / span 6}
+.sides{display:flex;gap:0;border-bottom:1px solid var(--line);margin-bottom:6px}
+.sides button{flex:1;background:none;border:0;padding:14px 4px 12px;cursor:pointer;text-align:left;color:var(--muted);position:relative;transition:color .2s}
+.sides button b{display:block;font-family:var(--serif);font-size:var(--t-l);font-weight:600;line-height:1;color:var(--fg);opacity:.55;transition:opacity .2s}
+.sides button[aria-selected=true]{color:var(--fg)}
+.sides button[aria-selected=true] b{opacity:1}
+.sides button::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--fg);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.sides button[aria-selected=true]::after{transform:scaleX(1)}
+.tracklist{list-style:none}
+.tracklist li{display:grid;grid-template-columns:3.2em 1fr auto;gap:14px;align-items:baseline;padding:15px 0;border-bottom:1px solid var(--line);animation:up .6s var(--ease) both;animation-delay:calc(var(--i) * 45ms)}
+.tracklist .n{font-stretch:75%;font-weight:600;letter-spacing:.14em;color:var(--muted);font-size:var(--t-label)}
+.tracklist .t{font-family:var(--serif);font-weight:500;font-size:var(--t-m);line-height:1.12;letter-spacing:-.01em}
+.tracklist .a{color:var(--muted);font-size:var(--t-small);text-align:right}
+.rep .foot{margin-top:18px;color:var(--muted);font-size:var(--t-small)}
+
+/* ───────────────────────── faq ───────────────────────── */
+.faq{padding:clamp(80px,10vw,150px) 0}
+.faq .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:40px var(--gutter);align-items:start}
+.faq .side{grid-column:1 / span 4;position:sticky;top:calc(var(--header) + 24px)}
+.faq .side p{margin-top:18px;color:var(--muted);max-width:32ch}
+.faq .side a{color:var(--fg)}
+.qa{grid-column:6 / span 7;border-top:1px solid var(--fg)}
+.qa details{border-bottom:1px solid var(--line)}
+.qa summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:center;padding:22px 0;font-family:var(--serif);font-weight:500;font-size:var(--t-m);line-height:1.2}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary i{flex:0 0 auto;width:28px;height:28px;position:relative}
+.qa summary i::before,.qa summary i::after{content:"";position:absolute;left:6px;right:6px;top:13px;height:1.5px;background:currentColor;transition:transform .35s var(--ease)}
+.qa summary i::after{transform:rotate(90deg)}
+.qa details[open] summary i::after{transform:rotate(0)}
+.qa .a{padding:0 48px 24px 0;color:var(--muted);max-width:62ch}
+
+/* ───────────────────────── contatti ───────────────────────── */
+.contact{padding:clamp(80px,10vw,150px) 0 clamp(60px,7vw,100px)}
+.contact .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:48px var(--gutter);align-items:start}
+.contact .intro{grid-column:1 / span 5;grid-row:1}
+.contact .direct{grid-column:1 / span 5;grid-row:2}
+.contact .intro p{margin-top:22px;color:var(--muted);max-width:40ch}
+.direct > .label{padding-bottom:12px;border-bottom:1px solid var(--line)}
+.direct a,.direct div{min-height:56px;display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.direct .v{font-family:var(--serif);font-weight:500;font-size:var(--t-m);text-align:right;word-break:break-word}
+.direct a:hover .v{color:var(--fuchsia-hi)}
+.direct .label{color:var(--muted)}
+
+form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-columns:1fr 1fr;gap:28px 22px}
+.f{display:flex;flex-direction:column;gap:8px}
+.f.full{grid-column:1 / -1}
+.f > label,.f > .lg{color:var(--muted)}
+.f input,.f textarea{width:100%;background:transparent;border:0;border-bottom:1.5px solid var(--line);padding:10px 0;font-size:1rem;border-radius:0;transition:border-color .2s}
+.f input:focus,.f textarea:focus{outline:none;border-color:var(--fuchsia-hi)}
+.f input::placeholder,.f textarea::placeholder{color:color-mix(in srgb, var(--muted) 60%, transparent)}
+.f input[type=date]{color-scheme:dark;font-family:var(--serif);font-weight:500;font-size:var(--t-m);padding:4px 0 8px}
+.f textarea{min-height:96px;resize:vertical}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{position:relative;cursor:pointer}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips span{display:inline-block;padding:.62em 1em;border:1.5px solid var(--line);font-size:var(--t-small);transition:background .2s,border-color .2s,color .2s}
+.chips label:hover span{border-color:var(--fg)}
+.chips input:checked + span{background:var(--fuchsia);border-color:var(--fuchsia);color:#fff}
+.chips input:focus-visible + span{outline:2px solid var(--fuchsia-hi);outline-offset:2px}
+.book .send{grid-column:1 / -1;display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:6px}
+.book .send p{color:var(--muted);font-size:var(--t-small);max-width:40ch}
+.book .err{grid-column:1 / -1;color:var(--fuchsia-hi);font-size:var(--t-small);margin:-12px 0 -16px}
+.book .err:empty{display:none}
+
+/* ───────────────────────── footer ───────────────────────── */
+.foot{padding-top:clamp(40px,5vw,64px);overflow:hidden;border-top:1px solid var(--line)}
+.foot .cols{display:grid;grid-template-columns:repeat(12,1fr);gap:28px var(--gutter)}
+.foot .cols > div{grid-column:span 3}
+.foot .cols > div:first-child{grid-column:span 6}
+.foot .cols .label{color:var(--muted);margin-bottom:12px}
+.foot ul{list-style:none}
+.foot li{padding:3px 0}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--fuchsia-hi)}
+.foot .big{font-family:var(--serif);font-style:italic;font-weight:500;font-size:min(16.2vw,15rem);line-height:1;letter-spacing:-.05em;white-space:nowrap;margin:clamp(40px,6vw,80px) 0 0 -.04em;padding-bottom:.06em;color:var(--ink-2);-webkit-text-stroke:1px var(--ink-line);user-select:none;text-align:center}
+.foot .legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:18px 0 calc(22px + env(safe-area-inset-bottom));border-top:1px solid var(--line);color:var(--muted);font-size:var(--t-small)}
+.foot .legal a{color:var(--muted)}
+
+.mcta{display:none}
+
+/* ───────────────────────── responsive ───────────────────────── */
+@media (max-width:1100px){
+  .hero-foot .lead{grid-column:1 / span 7}
+  .hero-foot .cta{grid-column:8 / span 5}
+  .hero-foot .facts{grid-column:1 / -1;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+  .hero-foot .facts li{flex-direction:column;gap:2px;padding-right:12px}
+  .tempo-time{grid-column:1 / -1;position:static;display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}
+  .tempo-time b{margin:0}
+  .tempo-body{grid-column:1 / span 6}
+  .tempo-media{grid-column:7 / span 6}
+  .lineup .photo{grid-column:1 / span 6}
+  .lineup .bill{grid-column:7 / span 6}
+  .rep-head{grid-column:1 / -1}
+  .rep-intro{grid-column:1 / span 5}
+  .tracks{grid-column:6 / span 7}
+}
+@media (max-width:860px){
+  .nav{display:none}
   .burger{display:block}
-  .nav .btn.top{display:none}
-  section{padding:64px 0}
-  form{grid-template-columns:1fr}
+  .cover-strip span:not(:last-child){display:none}
+  .mast .s{margin-right:-.03em}
+  .mast{font-size:19.4vw;line-height:.84}
+  .mast .mbr{display:inline}
+  .mast .w2{display:inline-block;padding-left:.5em}
+  .mcta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:85;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:color-mix(in srgb, var(--ink) 92%, transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transform:translateY(110%);transition:transform .45s var(--ease)}
+  .mcta.show{transform:none}
+  .mcta .btn{flex:1;justify-content:center;padding:1em .8em;color:#fff}
+  .mcta .btn-line{flex:0 0 auto;border-color:rgba(255,255,255,.35)}
+  .foot{padding-bottom:72px}
+  .contact .intro,.contact .direct,form.book{grid-row:auto}
+  .contact .direct{margin-top:12px}
+  .cover img{height:auto;aspect-ratio:4/3;object-position:50% 50%}
+  .hero-foot{padding-top:34px}
+  .hero-foot .lead,.hero-foot .cta{grid-column:1 / -1}
+  .hero-foot .cta{flex-direction:row;flex-wrap:wrap}
+  .hero-foot .facts{grid-template-columns:1fr 1fr}
+  .manifesto .label,.statement,.credits{grid-column:1 / -1}
+  .credits{grid-template-columns:1fr 1fr;row-gap:18px}
+  .serata-head .display,.serata-head p{grid-column:1 / -1}
+  .tempo-body,.tempo-media{grid-column:1 / -1}
+  .tempo-media{justify-self:start}
+  .tempo-media.narrow{max-width:min(360px,78%)}
+  .per .label,.per ul,.per .note{grid-column:1 / -1}
+  .lineup .photo,.lineup .bill{grid-column:1 / -1}
+  .lineup .photo{position:static}
+  .rep-intro,.tracks{grid-column:1 / -1}
+  .rep-head{position:relative;z-index:1}
+  .rep{position:relative}
+  .vinyl{position:absolute;right:-24vw;top:18px;width:52vw;margin:0;z-index:0}
+  .rep-intro{position:static}
+  .rep-intro > :not(.vinyl){position:relative;z-index:1}
+  .faq .side,.qa{grid-column:1 / -1}
+  .faq .side{position:static}
+  .contact .intro,.contact .direct,form.book{grid-column:1 / -1}
+  .foot .cols > div,.foot .cols > div:first-child{grid-column:1 / -1}
+}
+@media (max-width:520px){
+  form.book{grid-template-columns:1fr}
+  .tracklist li{grid-template-columns:2.6em 1fr}
+  .tracklist .a{grid-column:2;text-align:left;margin-top:-6px}
+  .qa .a{padding-right:0}
+  .strip img{height:360px}
 }
 </style>
 </head>
 <body>
-<div class="demo-bar">DEMO DI PROGETTO – testi, video, recensioni e brani sono segnaposto da sostituire con i contenuti reali</div>
+<a class="skip" href="#main">Vai al contenuto</a>
 
-<header id="hdr">
-  <div class="wrap nav">
-    <a href="#top"><img src="https://sparklingpockets.weebly.com/uploads/1/3/6/5/13657163/published/logo.png?1739706790" alt="Sparkling Pockets"></a>
-    <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
-    <ul id="menu">
-      <li><a href="#band">La Band</a></li>
-      <li><a href="#formule">Formule</a></li>
-      <li><a href="#repertorio">Repertorio</a></li>
-      <li><a href="#video">Video</a></li>
-      <li><a href="#recensioni">Dicono di noi</a></li>
-      <li><a href="#contatti">Contatti</a></li>
-    </ul>
-    <a href="#contatti" class="btn btn-gold top">Richiedi preventivo</a>
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Sparkling Pockets, torna all'inizio"><img src="assets/logo-s.webp" alt="" width="56" height="80">Sparkling Pockets</a>
+    <nav class="nav" aria-label="Principale">
+      <a href="#serata">La serata</a>
+      <a href="#band">La band</a>
+      <a href="#repertorio">Repertorio</a>
+      <a href="#faq">Domande</a>
+      <a class="btn btn-solid" href="#contatti">Verifica la data <span class="arr" aria-hidden="true">→</span></a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Apri il menu" aria-expanded="false" aria-controls="sheet"><span></span><span></span></button>
   </div>
 </header>
 
-<main id="top">
-<section class="hero">
-  <div class="wrap">
-    <img class="logo" src="https://sparklingpockets.weebly.com/uploads/1/3/6/5/13657163/published/logo-e-scritta.png?1739706406" alt="Sparkling Pockets">
-    <div class="tag">Party &amp; More</div>
-    <p>Sette musicisti, due voci straordinarie e quarant'anni di pop, disco e soul dal vivo. La musica che fa ballare tutti, dal primo all'ultimo ospite.</p>
-    <div class="cta">
-      <a href="#contatti" class="btn btn-gold">Richiedi preventivo</a>
-      <a href="#video" class="btn btn-ghost">Guardaci dal vivo</a>
-    </div>
-    <div class="badges"><span>Band di 7 elementi</span><span>Repertorio su misura</span><span>Formula acoustic e chill-out</span></div>
-  </div>
-</section>
+<div class="sheet" id="sheet" aria-hidden="true">
+  <nav aria-label="Menu mobile">
+    <a href="#serata">La serata</a>
+    <a href="#band">La band</a>
+    <a href="#repertorio">Repertorio</a>
+    <a href="#faq">Domande</a>
+  </nav>
+  <a class="btn btn-solid" href="#contatti">Verifica la data <span class="arr" aria-hidden="true">→</span></a>
+  <p class="label">sparklingpockets@gmail.com</p>
+</div>
 
-<section id="eventi">
-  <div class="wrap">
-    <div class="eyebrow">Per ogni occasione</div>
-    <h2>Il tuo evento, la nostra musica</h2>
-    <p class="lead">Dal ballo scatenato all'aperitivo in relax: costruiamo la serata intorno a te e ai tuoi ospiti.</p>
-    <div class="grid4">
-      <div class="ev"><h3>Matrimoni</h3><p>Dall'aperitivo di benvenuto alla pista da ballo, con i brani che hai scelto tu.</p></div>
-      <div class="ev"><h3>Feste private</h3><p>Compleanni, anniversari, lauree: la festa che i tuoi ospiti ricorderanno.</p></div>
-      <div class="ev"><h3>Eventi aziendali</h3><p>Cene di gala, party e inaugurazioni con un'immagine curata e professionale.</p></div>
-      <div class="ev"><h3>Lounge &amp; aperitivi</h3><p>Una playlist dal vivo, elegante e leggera, anche in versione acustica.</p></div>
-    </div>
-  </div>
-</section>
+<main id="main">
 
-<section id="formule" class="alt">
+<!-- ═════════════ COVER ═════════════ -->
+<section class="hero t-paper" id="top" data-header="light">
   <div class="wrap">
-    <div class="eyebrow">Formule</div>
-    <h2>Scegli il formato giusto</h2>
-    <p class="lead">Ogni serata è diversa. Partiamo da una di queste formule e la adattiamo alle tue esigenze.</p>
-    <div class="grid3">
-      <div class="formula feat"><span class="pill">Più richiesta</span><h3>Full Band</h3><div class="sub">7 elementi · Party</div>
-        <ul><li>Batteria, basso, tastiere, chitarra, tromba</li><li>Due voci soliste</li><li>Pop, disco e soul degli ultimi 40 anni</li><li>Energia da dancefloor</li></ul></div>
-      <div class="formula"><h3>Acoustic</h3><div class="sub">Formazione ridotta · Su richiesta</div>
-        <ul><li>Formazione unplugged su misura</li><li>Ideale per cerimonie e cene</li><li>Atmosfera calda e raffinata</li><li>[Da definire con il cliente]</li></ul></div>
-      <div class="formula"><h3>Chill-out</h3><div class="sub">Ambient · Aperitivo</div>
-        <ul><li>Playlist dal vivo morbida e ambient</li><li>Perfetta per lounge e aperitivi</li><li>Volume pensato per chiacchierare</li><li>[Da definire con il cliente]</li></ul></div>
+    <div class="cover-strip label">
+      <span>Live music entertainment</span>
+      <span class="mid">Pop · Disco · Soul · Funk</span>
+      <span>Matrimoni, feste, eventi</span>
     </div>
-  </div>
-</section>
-
-<section id="band" class="alt">
-  <div class="wrap">
-    <div class="eyebrow">La Band</div>
-    <h2>I musicisti</h2>
-    <p class="lead">Professionisti con anni di palco alle spalle e una cosa in comune: far divertire il pubblico.</p>
-    <div class="team">
-      <div class="member"><div class="ph"><img loading="lazy" src="https://sparklingpockets.weebly.com/uploads/1/3/6/5/13657163/kri_orig.png" alt="Krensly Taveras"></div><div class="info"><b>Krensly Taveras</b><span>Voce</span></div></div>
-      <div class="member"><div class="ph"><img loading="lazy" src="https://sparklingpockets.weebly.com/uploads/1/3/6/5/13657163/fede_orig.png" alt="Federica Rini"></div><div class="info"><b>Federica Rini</b><span>Voce</span></div></div>
-      <div class="member"><div class="ph"><img loading="lazy" src="https://sparklingpockets.weebly.com/uploads/1/3/6/5/13657163/published/images.jpg?1791219533" alt="Angelo Torregrossa"></div><div class="info"><b>Angelo Torregrossa</b><span>Tromba</span></div></div>
-      <div class="member"><div class="ph"><img loading="lazy" src="https://sparklingpockets.weebly.com/uploads/1/3/6/5/13657163/ghiro_orig.png" alt="Matteo Ghiringhelli"></div><div class="info"><b>Matteo Ghiringhelli</b><span>Chitarra</span></div></div>
-      <div class="member"><div class="ph"><img loading="lazy" src="https://sparklingpockets.weebly.com/uploads/1/3/6/5/13657163/tia_orig.png" alt="Mattia Rizzato"></div><div class="info"><b>Mattia Rizzato</b><span>Tastiere</span></div></div>
-      <div class="member"><div class="ph"><img loading="lazy" src="https://sparklingpockets.weebly.com/uploads/1/3/6/5/13657163/bass_orig.png" alt="Marco Brambilla"></div><div class="info"><b>Marco Brambilla</b><span>Basso</span></div></div>
-      <div class="member"><div class="ph"><img loading="lazy" src="https://sparklingpockets.weebly.com/uploads/1/3/6/5/13657163/gio_orig.png" alt="Giordano Rizzato"></div><div class="info"><b>Giordano Rizzato</b><span>Batteria</span></div></div>
+    <div class="mast-wrap">
+      <h1 class="mast" id="mast" aria-label="Sparkling Pockets">
+        <img class="s" src="assets/logo-s.webp" alt="" width="167" height="240" aria-hidden="true"><span class="w" aria-hidden="true">parkling</span><br class="mbr"> <span class="w w2" aria-hidden="true">Pockets</span>
+      </h1>
     </div>
-  </div>
-</section>
-
-<section id="repertorio">
-  <div class="wrap">
-    <div class="eyebrow">Repertorio</div>
-    <h2>I successi che vuoi sentire dal vivo</h2>
-    <p class="lead">Una lista enorme tra cui scegliere. Qui un assaggio per genere.</p>
-    <div class="tabs">
-      <button class="tab on" data-t="pop">Pop</button>
-      <button class="tab" data-t="disco">Disco</button>
-      <button class="tab" data-t="soul">Soul</button>
-    </div>
-    <ul class="songs" id="songs"></ul>
-    <p class="note">* Elenco di esempio, da sostituire con la setlist reale. Qui si potrà anche scaricare la lista completa in PDF.</p>
-  </div>
-</section>
-
-<section id="video" class="alt">
-  <div class="wrap">
-    <div class="eyebrow">Video</div>
-    <h2>Guardaci dal vivo</h2>
-    <p class="lead">Il modo più rapido per capire che serata ti aspetta.</p>
-    <div class="videos">
-      <div class="vid"><div class="play">▶</div>Video 1<br>[incorporare da YouTube]</div>
-      <div class="vid"><div class="play">▶</div>Video 2<br>[incorporare da YouTube]</div>
-      <div class="vid"><div class="play">▶</div>Video 3<br>[incorporare da YouTube]</div>
-    </div>
-    <p style="margin-top:26px"><a class="btn btn-ghost" href="https://www.youtube.com/@SparklingPockets" target="_blank" rel="noopener">Tutti i video su YouTube →</a></p>
-  </div>
-</section>
-
-<section id="recensioni">
-  <div class="wrap">
-    <div class="eyebrow">Dicono di noi</div>
-    <h2>Parola di chi ha ballato con noi</h2>
-    <div class="reviews">
-      <div class="rev"><div class="stars">★★★★★</div><p>“[Recensione segnaposto: una frase breve di un cliente soddisfatto sulla serata e sulla band.]”</p><small>Nome Cognome · Matrimonio</small></div>
-      <div class="rev"><div class="stars">★★★★★</div><p>“[Recensione segnaposto: un commento sull'energia della band e sul coinvolgimento degli ospiti.]”</p><small>Nome Cognome · Festa privata</small></div>
-      <div class="rev"><div class="stars">★★★★★</div><p>“[Recensione segnaposto: un parere sulla professionalità e sull'organizzazione.]”</p><small>Azienda · Evento aziendale</small></div>
-    </div>
-  </div>
-</section>
-
-<section id="contatti" class="contact">
-  <div class="wrap">
-    <div class="cgrid">
-      <div class="cinfo">
-        <div class="eyebrow">Contatti</div>
-        <h2>Parliamo della tua serata</h2>
-        <p>Raccontaci data, luogo e tipo di evento: ti rispondiamo con una proposta su misura. [Tempo di risposta da confermare]</p>
-        <ul>
-          <li>Email: [da inserire]</li>
-          <li>Telefono / WhatsApp: [da inserire]</li>
-          <li>Instagram: <a href="https://www.instagram.com/sparkling_pockets" target="_blank" rel="noopener">@sparkling_pockets</a></li>
-          <li>YouTube: <a href="https://www.youtube.com/@SparklingPockets" target="_blank" rel="noopener">SparklingPockets</a></li>
-        </ul>
+    <figure class="cover">
+      <img src="assets/band-palazzo-1200.webp" srcset="assets/band-palazzo-1200.webp 1200w, assets/band-palazzo-2400.webp 2400w" sizes="(min-width:1400px) 1400px, 100vw" width="2400" height="1601" alt="I sette musicisti degli Sparkling Pockets seduti su una panca in un salone affrescato: le due cantanti in abito fucsia e pantaloni blu, i musicisti in completo nero." fetchpriority="high">
+    </figure>
+    <div class="hero-foot">
+      <p class="lead rv">La party band di sette elementi che fa ballare tutti, dal primo all'ultimo ospite: pop, disco e soul degli ultimi quarant'anni, <em>dal vivo come non li avete mai sentiti.</em></p>
+      <div class="cta rv" style="--d:.08s">
+        <a class="btn btn-solid" href="#contatti">Verifica la tua data <span class="arr" aria-hidden="true">→</span></a>
+        <a class="btn btn-line" href="#serata">Guardaci dal vivo <span class="arr" aria-hidden="true">↓</span></a>
       </div>
-      <form id="form">
-        <div><label for="n">Nome e cognome</label><input id="n" required></div>
-        <div><label for="e">Email</label><input id="e" type="email" required></div>
-        <div><label for="t">Telefono</label><input id="t" type="tel"></div>
-        <div><label for="tp">Tipo di evento</label>
-          <select id="tp"><option>Matrimonio</option><option>Festa privata</option><option>Evento aziendale</option><option>Lounge / aperitivo</option><option>Altro</option></select></div>
-        <div><label for="d">Data</label><input id="d" type="date"></div>
-        <div><label for="l">Luogo</label><input id="l" placeholder="Città / location"></div>
-        <div><label for="o">N. ospiti (circa)</label><input id="o" type="number" min="1"></div>
-        <div><label for="f">Formula</label>
-          <select id="f"><option>Full Band</option><option>Acoustic</option><option>Chill-out</option><option>Non lo so ancora</option></select></div>
-        <div class="full"><label for="m">Messaggio</label><textarea id="m" placeholder="Raccontaci cosa hai in mente…"></textarea></div>
-        <div class="full"><button class="btn btn-gold" type="submit" style="width:100%">Invia richiesta</button></div>
-        <div class="ok" id="ok">Demo: il modulo non invia nulla. In produzione la richiesta arriverà via email.</div>
-      </form>
+      <ul class="facts rv" style="--d:.16s">
+        <li><span>Formazione</span><span>7 elementi</span></li>
+        <li><span>Voci</span><span>2 soliste</span></li>
+        <li><span>Formule</span><span>Party, acoustic, chill-out</span></li>
+        <li><span>Repertorio</span><span>Scelto da voi</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ MANIFESTO ═════════════ -->
+<section class="manifesto t-paper" data-header="light">
+  <div class="wrap grid">
+    <p class="label muted">Chi siamo</p>
+    <p class="statement rv">Sette musicisti, due voci e un'unica regola: <em>nessuno resta seduto.</em> Dall'aperitivo all'ultimo ballo costruiamo la serata intorno a voi e ai vostri ospiti.</p>
+    <dl class="credits rv">
+      <div><dt class="label">Ritmica</dt><dd>Batteria, basso</dd></div>
+      <div><dt class="label">Armonia</dt><dd>Tastiere, chitarra</dd></div>
+      <div><dt class="label">Fiati</dt><dd>Tromba &amp; sax</dd></div>
+      <div><dt class="label">Voci</dt><dd>Due soliste</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ═════════════ LA SERATA ═════════════ -->
+<section id="serata" aria-labelledby="serata-t">
+  <div class="serata-head t-paper2" data-header="light">
+    <div class="wrap grid">
+      <h2 class="display rv" id="serata-t">Una serata in <em>quattro tempi.</em></h2>
+      <p class="rv" style="--d:.1s">Ogni festa ha il suo ritmo. Per ogni momento abbiamo una formula, e la musica cambia con la luce.</p>
+    </div>
+  </div>
+
+  <article class="tempo t-paper2" data-header="light">
+    <div class="wrap grid">
+      <div class="tempo-time"><span class="label">Primo tempo</span><b>18:30</b><span class="name">Aperitivo</span></div>
+      <div class="tempo-body rv">
+        <p class="label formula">Formula chill-out</p>
+        <h3 class="h3">Si brinda, si chiacchiera, <em>la musica fa da cornice.</em></h3>
+        <p class="txt">Una playlist dal vivo morbida e ambient, a un volume pensato per parlare. Il sottofondo perfetto per il benvenuto agli ospiti o per un momento lounge.</p>
+        <ul class="ticks"><li>Volume da conversazione</li><li>Repertorio soft, soul e lounge</li><li>Anche in formazione acustica</li></ul>
+      </div>
+      <figure class="tempo-media rv" style="--d:.1s">
+        <div class="photo"><img src="assets/voci-piano-800.webp" srcset="assets/voci-piano-800.webp 800w, assets/voci-piano-1400.webp 1400w" sizes="(min-width:860px) 40vw, 100vw" width="1400" height="933" loading="lazy" alt="Le due cantanti accanto a un pianoforte d'epoca, una in abito fucsia e l'altra in nero."></div>
+        <figcaption class="label"><span>Le voci</span><span>Federica &amp; Krensly</span></figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <article class="tempo t-paper2" data-header="light">
+    <div class="wrap grid">
+      <div class="tempo-time"><span class="label">Secondo tempo</span><b>20:30</b><span class="name">Cena</span></div>
+      <div class="tempo-body rv">
+        <p class="label formula">Formula acoustic</p>
+        <h3 class="h3">Unplugged, <em>tra una portata e l'altra.</em></h3>
+        <p class="txt">Formazione ridotta e su misura, su richiesta. Atmosfera calda e raffinata, ideale per cerimonie e cene.</p>
+        <ul class="ticks"><li>Formazione su misura</li><li>Ideale per cerimonie e cene</li><li>Atmosfera calda e raffinata</li></ul>
+      </div>
+      <figure class="tempo-media narrow rv" style="--d:.1s">
+        <div class="player v916"><video preload="none" playsinline poster="video/acoustic-set.webp" src="video/acoustic-set.mp4"></video><button class="play" type="button"><span><i></i><span class="label">Acoustic set · 2:37</span></span></button></div>
+        <figcaption class="label"><span>Dal vivo</span><span>Acoustic set</span></figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <div class="dusk" aria-hidden="true"><span class="label">21:45 · si abbassano le luci</span></div>
+
+  <article class="tempo t-ink" data-header="dark">
+    <div class="wrap grid">
+      <div class="tempo-time"><span class="label">Terzo tempo</span><b>22:30</b><span class="name">Party</span></div>
+      <div class="tempo-body rv">
+        <p class="label formula">Formula full band</p>
+        <h3 class="h3">Si accendono le luci, <em>si riempie la pista.</em></h3>
+        <p class="txt">Sette elementi sul palco: batteria, basso, tastiere, chitarra, fiati e due voci soliste. Il meglio di quarant'anni di pop, disco e soul, con l'energia di un concerto.</p>
+        <ul class="ticks"><li>Band completa, 7 elementi</li><li>Due voci soliste</li><li>Scaletta costruita con voi</li></ul>
+      </div>
+      <figure class="tempo-media rv" style="--d:.1s">
+        <div class="player v169"><video preload="none" playsinline poster="video/live.webp" src="video/live.mp4"></video><button class="play" type="button"><span><i></i><span class="label">Live show · 1:39</span></span></button></div>
+        <figcaption class="label"><span>Dal vivo</span><span>Live show</span></figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <article class="tempo t-ink" data-header="dark">
+    <div class="wrap grid">
+      <div class="tempo-time"><span class="label">Gran finale</span><b>00:30</b><span class="name">Ultimo ballo</span></div>
+      <div class="tempo-body rv">
+        <p class="label formula">All night long</p>
+        <h3 class="h3">Finché c'è qualcuno <em>in pista.</em></h3>
+        <p class="txt">Il finale è fatto dei pezzi che tutti cantano a squarciagola. Di solito è qui che le scarpe finiscono sotto i tavoli.</p>
+      </div>
+      <figure class="tempo-media narrow rv" style="--d:.1s">
+        <div class="player v916"><video preload="none" playsinline poster="video/all-night-long.webp" src="video/all-night-long.mp4"></video><button class="play" type="button"><span><i></i><span class="label">All Night Long · 2:58</span></span></button></div>
+        <figcaption class="label"><span>Dal vivo</span><span><a href="https://www.youtube.com/@SparklingPockets" target="_blank" rel="noopener">Altri video su YouTube ↗</a></span></figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <div class="per t-ink" data-header="dark">
+    <div class="wrap grid">
+      <p class="label">Suoniamo per</p>
+      <ul><li>Matrimoni</li><li>Feste private</li><li>Eventi aziendali</li><li>Serate nei locali</li></ul>
+      <p class="note">Gli orari sono indicativi: ogni serata la costruiamo su misura, insieme a voi.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ LINE-UP ═════════════ -->
+<section id="band" class="t-ink" data-header="dark" aria-labelledby="band-t">
+  <div class="lineup">
+    <div class="wrap grid">
+      <figure class="photo rv">
+        <img src="assets/band-biliardo-900.webp" srcset="assets/band-biliardo-900.webp 900w, assets/band-biliardo-1600.webp 1600w" sizes="(min-width:860px) 50vw, 100vw" width="1600" height="1067" loading="lazy" alt="La band intorno a un tavolo da biliardo in una biblioteca, con le due cantanti in primo piano.">
+        <figcaption class="label">La band al completo</figcaption>
+      </figure>
+      <div class="bill">
+        <p class="label muted">La line-up</p>
+        <h2 class="display rv" id="band-t">Sette musicisti, <em>una pista sola.</em></h2>
+        <ol class="roster">
+          <li class="rv"><span class="who">Krensly Taveras</span><span class="what label">Voce</span></li>
+          <li class="rv"><span class="who">Federica Rini</span><span class="what label">Voce</span></li>
+          <li class="rv"><span class="who">Angelo Torregrossa</span><span class="what label">Fiati</span></li>
+          <li class="rv"><span class="who">Matteo Ghiringhelli</span><span class="what label">Chitarra</span></li>
+          <li class="rv"><span class="who">Mattia Rizzato</span><span class="what label">Tastiere</span></li>
+          <li class="rv"><span class="who">Marco Brambilla</span><span class="what label">Basso</span></li>
+          <li class="rv"><span class="who">Giordano Rizzato</span><span class="what label">Batteria</span></li>
+        </ol>
+        <p class="after rv">Professionisti con anni di palco alle spalle e una cosa in comune: far divertire chi li ascolta.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="offstage">
+    <div class="wrap offstage-head">
+      <h3 class="h3">Fuori <em>scena.</em></h3>
+      <div class="arrows"><button type="button" data-dir="-1" aria-label="Foto precedenti">←</button><button type="button" data-dir="1" aria-label="Foto successive">→</button></div>
+    </div>
+    <div class="strip" id="strip" tabindex="0" aria-label="Galleria fotografica della band">
+      <figure class="land"><img src="assets/band-giardino-900.webp" width="900" height="600" loading="lazy" alt="La band in giardino, le cantanti con una gamba alzata e il chitarrista con la sua Telecaster."></figure>
+      <figure class="port"><img src="assets/ritratto-7023-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto di una delle cantanti in abito di paillettes."></figure>
+      <figure class="port"><img src="assets/ritratto-7119-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto di una delle cantanti in abito color rame."></figure>
+      <figure class="port"><img src="assets/ritratto-7215-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto del chitarrista con la chitarra a tracolla."></figure>
+      <figure class="land"><img src="assets/band-scalinata-800.webp" width="800" height="533" loading="lazy" alt="La band in posa su una scalinata coperta d'edera."></figure>
+      <figure class="port"><img src="assets/ritratto-7152-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto di un musicista con gilet, a braccia conserte, davanti a un clavicembalo."></figure>
+      <figure class="port"><img src="assets/ritratto-6911-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto di un musicista in giacca nera appoggiato a una colonna."></figure>
+      <figure class="port"><img src="assets/ritratto-7059-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto di una delle cantanti mentre canta al microfono."></figure>
+      <figure class="port"><img src="assets/ritratto-6980-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto di un musicista in giacca blu."></figure>
+      <figure class="port"><img src="assets/ritratto-7192-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto di un musicista con gilet davanti a una finestra."></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ REPERTORIO ═════════════ -->
+<section id="repertorio" class="rep t-fuchsia" data-header="dark" aria-labelledby="rep-t">
+  <div class="wrap grid">
+    <div class="rep-head">
+      <p class="label">Repertorio</p>
+      <h2 class="display rv" id="rep-t" style="margin-top:14px">Il lato A, il lato B <em>e tutto quello in mezzo.</em></h2>
+    </div>
+    <div class="rep-intro">
+      <p class="rv">Dal ballo scatenato al chill-out, abbiamo una lista enorme di successi: scegliete voi i vostri preferiti e li sentirete dal vivo come non li avete mai sentiti.</p>
+      <a class="btn btn-solid rv" href="mailto:sparklingpockets@gmail.com?subject=Richiesta%20scaletta%20completa">Chiedi la scaletta completa <span class="arr" aria-hidden="true">→</span></a>
+      <div class="vinyl" id="vinyl" aria-hidden="true"><div class="disc"></div><div class="lbl"><img src="assets/logo-s.webp" alt=""><span class="label">Party &amp; More</span></div></div>
+    </div>
+    <div class="tracks">
+      <div class="sides" role="tablist" aria-label="Generi">
+        <button role="tab" aria-selected="true" aria-controls="tracklist" data-side="a"><b>Lato A</b><span class="label">Disco</span></button>
+        <button role="tab" aria-selected="false" aria-controls="tracklist" data-side="b" tabindex="-1"><b>Lato B</b><span class="label">Soul &amp; funk</span></button>
+        <button role="tab" aria-selected="false" aria-controls="tracklist" data-side="c" tabindex="-1"><b>Lato C</b><span class="label">Pop</span></button>
+      </div>
+      <ol class="tracklist" id="tracklist" role="tabpanel" aria-live="polite"></ol>
+      <p class="foot">Solo un assaggio: la lista completa è molto più lunga.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ FAQ ═════════════ -->
+<section id="faq" class="faq t-paper2" data-header="light" aria-labelledby="faq-t">
+  <div class="wrap grid">
+    <div class="side">
+      <p class="label muted">Domande frequenti</p>
+      <h2 class="display rv" id="faq-t" style="margin-top:14px">Prima di <em>scriverci.</em></h2>
+      <p>Non trovate la risposta? Scriveteci a <a href="mailto:sparklingpockets@gmail.com">sparklingpockets@gmail.com</a>.</p>
+    </div>
+    <div class="qa">
+      <details><summary>Che genere di musica suonate?<i aria-hidden="true"></i></summary><p class="a">Pop, disco, soul e funk degli ultimi quarant'anni: i pezzi che tutti conoscono e che fanno ballare tutte le generazioni. Per aperitivi e cene proponiamo anche una playlist più morbida e ambient.</p></details>
+      <details><summary>Possiamo scegliere le canzoni?<i aria-hidden="true"></i></summary><p class="a">Sì. Vi mandiamo la nostra lista e scegliete i vostri preferiti, dai momenti più tranquilli a quelli più scatenati. La scaletta la costruiamo insieme.</p></details>
+      <details><summary>Avete una formazione più piccola?<i aria-hidden="true"></i></summary><p class="a">Sì, su richiesta suoniamo in formazione acustica ridotta: perfetta per cerimonie, aperitivi e cene, o dove lo spazio è limitato.</p></details>
+      <details><summary>Portate impianto audio e luci?<i aria-hidden="true"></i></summary><p class="a">Sì, portiamo noi impianto audio e luci: a voi non resta che pensare agli ospiti.</p></details>
+      <details><summary>Quanto costa?<i aria-hidden="true"></i></summary><p class="a">Ogni serata è diversa: il preventivo dipende dalla formazione, dalla durata e dal luogo. Scriveteci data e location e vi mandiamo una proposta su misura.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ CONTATTI ═════════════ -->
+<section id="contatti" class="contact t-ink" data-header="dark" aria-labelledby="con-t">
+  <div class="wrap grid">
+    <div class="intro">
+      <p class="label muted">Contatti</p>
+      <h2 class="display rv" id="con-t" style="margin-top:14px">La vostra data è <em class="accent">ancora libera?</em></h2>
+      <p>Che sia un matrimonio, una festa privata, un evento aziendale o una serata in un locale, raccontateci data e luogo: vi rispondiamo con disponibilità e preventivo al più presto.</p>
+    </div>
+
+    <form class="book" id="book" novalidate>
+      <div class="f full"><label for="f-date" class="label">Data dell'evento</label><input id="f-date" name="data" type="date" required></div>
+      <div class="f full"><span class="label lg" id="lg-tipo">Tipo di evento</span>
+        <div class="chips" role="radiogroup" aria-labelledby="lg-tipo">
+          <label><input type="radio" name="tipo" value="Matrimonio" checked><span>Matrimonio</span></label>
+          <label><input type="radio" name="tipo" value="Festa privata"><span>Festa privata</span></label>
+          <label><input type="radio" name="tipo" value="Evento aziendale"><span>Aziendale</span></label>
+          <label><input type="radio" name="tipo" value="Altro"><span>Altro</span></label>
+        </div>
+      </div>
+      <div class="f"><label for="f-luogo" class="label">Luogo</label><input id="f-luogo" name="luogo" placeholder="Città o location" autocomplete="address-level2" enterkeyhint="next"></div>
+      <div class="f"><label for="f-nome" class="label">Il vostro nome</label><input id="f-nome" name="nome" required autocomplete="name" enterkeyhint="send"></div>
+      <p class="err" id="err" role="alert"></p>
+      <div class="send">
+        <button class="btn btn-solid" type="submit">Verifica disponibilità <span class="arr" aria-hidden="true">→</span></button>
+        <p>Si apre la vostra email con la richiesta già scritta: aggiungete quello che volete e inviate.</p>
+      </div>
+    </form>
+
+    <div class="direct">
+      <p class="label muted">Oppure scriveteci direttamente</p>
+      <a href="mailto:sparklingpockets@gmail.com"><span class="label">Email</span><span class="v">sparklingpockets@gmail.com</span></a>
+      <a href="https://www.instagram.com/sparkling_pockets" target="_blank" rel="noopener"><span class="label">Instagram</span><span class="v">@sparkling_pockets ↗</span></a>
+      <a href="https://www.youtube.com/@SparklingPockets" target="_blank" rel="noopener"><span class="label">YouTube</span><span class="v">@SparklingPockets ↗</span></a>
     </div>
   </div>
 </section>
 </main>
 
-<footer>
-  <div class="wrap fwrap">
-    <div>© 2026 Sparkling Pockets · Music Entertainment</div>
-    <div><a href="#">Privacy</a> · <a href="#">Cookie</a> · <a href="https://www.instagram.com/sparkling_pockets" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.youtube.com/@SparklingPockets" target="_blank" rel="noopener">YouTube</a></div>
+<footer class="foot t-ink" data-header="dark">
+  <div class="wrap">
+    <div class="cols">
+      <div><p class="label">Sparkling Pockets</p><p style="max-width:34ch">Party band di sette elementi. Pop, disco e soul dal vivo per matrimoni, feste ed eventi.</p></div>
+      <div><p class="label">Scriveteci</p><ul><li><a href="mailto:sparklingpockets@gmail.com">sparklingpockets@gmail.com</a></li><li><a href="#contatti">Verifica la data</a></li></ul></div>
+      <div><p class="label">Seguiteci</p><ul><li><a href="https://www.instagram.com/sparkling_pockets" target="_blank" rel="noopener">Instagram ↗</a></li><li><a href="https://www.youtube.com/@SparklingPockets" target="_blank" rel="noopener">YouTube ↗</a></li></ul></div>
+    </div>
+    <p class="big" aria-hidden="true">Party &amp; More</p>
+    <div class="legal">
+      <span>© <span id="yr">2026</span> Sparkling Pockets</span>
+      <span>Party &amp; More · Live music entertainment</span>
+    </div>
   </div>
 </footer>
 
-<script>
-const hdr=document.getElementById('hdr');
-const onScroll=()=>hdr.classList.toggle('scrolled',scrollY>40);
-onScroll();addEventListener('scroll',onScroll);
-document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>document.getElementById('menu').classList.remove('open')));
+<!-- mobile: barra fissa con le azioni principali -->
+<div class="mcta" id="mcta" aria-hidden="true">
+  <a class="btn btn-solid" href="#contatti" tabindex="-1">Verifica la data <span class="arr" aria-hidden="true">→</span></a>
+  <a class="btn btn-line" href="mailto:sparklingpockets@gmail.com" tabindex="-1" aria-label="Scrivi una email">Email</a>
+</div>
 
-const data={
-  pop:[["Uptown Funk","Mark Ronson ft. Bruno Mars"],["Happy","Pharrell Williams"],["Can't Stop the Feeling","Justin Timberlake"],["Shut Up and Dance","Walk the Moon"]],
-  disco:[["September","Earth, Wind & Fire"],["Stayin' Alive","Bee Gees"],["I Will Survive","Gloria Gaynor"],["Last Dance","Donna Summer"]],
-  soul:[["Superstition","Stevie Wonder"],["Respect","Aretha Franklin"],["Ain't No Sunshine","Bill Withers"],["Let's Stay Together","Al Green"]]
-};
-const ul=document.getElementById('songs');
-function show(k){ul.innerHTML=data[k].map(s=>`<li><span>${s[0]}</span><small>${s[1]}</small></li>`).join('')}
-show('pop');
-document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{
-  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));b.classList.add('on');show(b.dataset.t);
-}));
-document.getElementById('form').addEventListener('submit',e=>{e.preventDefault();document.getElementById('ok').style.display='block'});
+<script>
+(() => {
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* masthead: split letters for the entrance, then fit to the column width */
+  const mast = $('#mast');
+  let n = 1;
+  $$('.w', mast).forEach(w => {
+    w.innerHTML = [...w.textContent].map(c => `<span class="ch" style="--i:${n++}">${c}</span>`).join('');
+  });
+  const fit = () => {
+    const box = mast.parentElement.clientWidth;
+    mast.style.fontSize = '100px';
+    const w = mast.getBoundingClientRect().width;
+    mast.style.fontSize = (100 * box / w * 0.995) + 'px';
+  };
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(fit);
+  addEventListener('resize', fit);
+
+  /* header: solid after scrolling, and dark over dark sections */
+  const hdr = $('#hdr');
+  const zones = $$('[data-header]');
+  let ticking = false;
+  const onScroll = () => {
+    ticking = false;
+    hdr.classList.toggle('scrolled', scrollY > 30);
+    const y = 34;
+    const z = zones.find(el => { const r = el.getBoundingClientRect(); return r.top <= y && r.bottom > y; });
+    hdr.classList.toggle('dark', !!z && z.dataset.header === 'dark' || hdr.classList.contains('menu-open'));
+  };
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  onScroll();
+
+  /* mobile menu */
+  const burger = $('#burger'), sheet = $('#sheet');
+  const setMenu = open => {
+    sheet.classList.toggle('open', open);
+    hdr.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-label', open ? 'Chiudi il menu' : 'Apri il menu');
+    sheet.setAttribute('aria-hidden', !open);
+    document.body.style.overflow = open ? 'hidden' : '';
+    onScroll();
+  };
+  burger.addEventListener('click', () => setMenu(!sheet.classList.contains('open')));
+  $$('a', sheet).forEach(a => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape' && sheet.classList.contains('open')) setMenu(false); });
+
+  /* reveal on scroll */
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+  $$('.rv').forEach(el => io.observe(el));
+  $$('.roster li').forEach((li, i) => li.style.setProperty('--d', (i * 0.05) + 's'));
+
+  /* video players: one at a time */
+  const videos = $$('.player video');
+  $$('.player').forEach(p => {
+    const v = $('video', p);
+    $('.play', p).addEventListener('click', () => {
+      videos.forEach(o => o !== v && o.pause());
+      p.classList.add('on');
+      v.controls = true;
+      v.play();
+    });
+    v.addEventListener('play', () => videos.forEach(o => o !== v && o.pause()));
+  });
+
+  /* gallery arrows */
+  const strip = $('#strip');
+  $$('.arrows button').forEach(b => b.addEventListener('click', () => strip.scrollBy({ left: +b.dataset.dir * strip.clientWidth * 0.7, behavior: reduce ? 'auto' : 'smooth' })));
+
+  /* repertoire */
+  const sides = {
+    a: [['Disco Inferno', 'The Trammps'], ["Stayin' Alive", 'Bee Gees'], ['September', 'Earth, Wind & Fire'], ['I Will Survive', 'Gloria Gaynor'], ['Last Dance', 'Donna Summer']],
+    b: [['Valerie', 'Amy Winehouse'], ['Superstition', 'Stevie Wonder'], ['Respect', 'Aretha Franklin'], ['Uptown Funk', 'Mark Ronson ft. Bruno Mars'], ["Ain't No Sunshine", 'Bill Withers']],
+    c: [['Levitating', 'Dua Lipa'], ["Can't Stop the Feeling!", 'Justin Timberlake'], ['Happy', 'Pharrell Williams'], ['Shut Up and Dance', 'Walk the Moon']]
+  };
+  const list = $('#tracklist'), tabs = $$('.sides button');
+  const showSide = k => {
+    tabs.forEach(t => { const on = t.dataset.side === k; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; });
+    list.innerHTML = sides[k].map(([t, a], i) => `<li style="--i:${i}"><span class="n">${k.toUpperCase()}${i + 1}</span><span class="t">${t}</span><span class="a">${a}</span></li>`).join('');
+  };
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => showSide(t.dataset.side));
+    t.addEventListener('keydown', e => {
+      const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) return;
+      const n = tabs[(i + d + tabs.length) % tabs.length]; n.focus(); n.click();
+    });
+  });
+  showSide('a');
+
+  /* the record spins only while the section is on screen */
+  const vinyl = $('#vinyl');
+  if (!reduce) new IntersectionObserver(([e]) => vinyl.classList.toggle('spin', e.isIntersecting)).observe(vinyl);
+
+  /* booking form: no backend yet, so it composes an email */
+  const form = $('#book'), err = $('#err');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const f = new FormData(form);
+    const miss = [];
+    if (!f.get('data')) miss.push('la data');
+    if (!f.get('nome').trim()) miss.push('il nome');
+    if (miss.length) { err.textContent = (miss.length > 1 ? 'Mancano ' : 'Manca ') + miss.join(' e ') + '.'; return; }
+    err.textContent = '';
+    const d = new Date(f.get('data') + 'T12:00').toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+    const body = [
+      'Ciao Sparkling Pockets,', '',
+      `vorremmo sapere se siete liberi ${d} per un evento (${f.get('tipo').toLowerCase()})${f.get('luogo') ? ' a ' + f.get('luogo') : ''}.`, '',
+      'Qualche dettaglio in più (orari, numero di ospiti, brani a cui teniamo):', '', '', '',
+      'Grazie,', f.get('nome')
+    ].join('\n');
+    location.href = 'mailto:sparklingpockets@gmail.com?subject=' + encodeURIComponent(`Disponibilità ${d} · ${f.get('tipo')}`) + '&body=' + encodeURIComponent(body);
+  });
+
+  /* mobile CTA bar: visible between the cover and the contact section */
+  const mcta = $('#mcta'), contact = $('#contatti');
+  let pastHero = false, atContact = false;
+  const syncBar = () => mcta.classList.toggle('show', pastHero && !atContact);
+  new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting && e.boundingClientRect.top < 0; syncBar(); }).observe($('.hero-foot .cta'));
+  new IntersectionObserver(([e]) => { atContact = e.isIntersecting; syncBar(); }).observe(contact);
+
+  $('#yr').textContent = new Date().getFullYear();
+})();
 </script>
 </body>
 </html>
