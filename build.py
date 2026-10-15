@@ -1,16 +1,25 @@
-"""Builds the publishable site into dist/.
+"""Builds the publishable site into dist/ and dist.zip.
 
 Usage: python build.py
-Minifies index.html (comments and whitespace in HTML, CSS and JS) and copies
-only the folders the page needs. The output folder can be uploaded as is.
+Minifies index.html (comments and whitespace in HTML, CSS and JS), copies
+only the folders the page needs, then zips the result with index.html at the
+root, ready for the 0sei Digital gestionale upload (max 50 MB, 300 files).
 """
+import os
 import re
 import shutil
+import stat
+import sys
+import time
+import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).parent
 DIST = ROOT / 'dist'
+ZIP = ROOT / 'dist.zip'
 ASSET_DIRS = ['assets', 'video']
+MAX_ZIP_BYTES = 50 * 1000 * 1000
+MAX_FILES = 300
 
 
 def minify_css(css):
@@ -37,18 +46,52 @@ def minify_html(html):
     return html.strip() + '\n'
 
 
+def _make_writable(func, path, _exc):
+    # OneDrive marks synced folders read-only, which blocks deletion on Windows
+    os.chmod(path, stat.S_IWRITE)
+    func(path)
+
+
+def remove_dist():
+    # OneDrive or a local server can hold files for a moment, so retry briefly
+    for attempt in range(10):
+        try:
+            if DIST.exists():
+                shutil.rmtree(DIST, onexc=_make_writable)
+            return
+        except PermissionError:
+            time.sleep(1)
+    sys.exit('Impossibile svuotare dist/: chiudi i programmi che la stanno usando e riprova.')
+
+
 def main():
-    if DIST.exists():
-        shutil.rmtree(DIST)
+    remove_dist()
     DIST.mkdir()
     src = (ROOT / 'index.html').read_text(encoding='utf-8')
     out = minify_html(src)
     (DIST / 'index.html').write_text(out, encoding='utf-8')
     for d in ASSET_DIRS:
         shutil.copytree(ROOT / d, DIST / d)
-    size = sum(f.stat().st_size for f in DIST.rglob('*') if f.is_file())
+    files = sorted(f for f in DIST.rglob('*') if f.is_file())
     print(f'index.html {len(src.encode()) // 1024} KB -> {len(out.encode()) // 1024} KB')
-    print(f'dist/ pronta: {size / 1e6:.1f} MB')
+
+    # images and videos are already compressed, so they are stored as is
+    with zipfile.ZipFile(ZIP, 'w') as z:
+        for f in files:
+            rel = f.relative_to(DIST).as_posix()
+            kind = zipfile.ZIP_DEFLATED if f.suffix in {'.html', '.css', '.js', '.svg'} else zipfile.ZIP_STORED
+            z.write(f, rel, compress_type=kind)
+    zip_size = ZIP.stat().st_size
+    print(f'dist.zip: {zip_size / 1e6:.1f} MB, {len(files)} file')
+
+    problems = []
+    if zip_size > MAX_ZIP_BYTES:
+        problems.append(f'lo zip supera 50 MB ({zip_size / 1e6:.1f} MB)')
+    if len(files) > MAX_FILES:
+        problems.append(f'troppi file ({len(files)} su {MAX_FILES})')
+    if problems:
+        sys.exit('ATTENZIONE: ' + '; '.join(problems))
+    print('OK per il gestionale: sotto 50 MB e 300 file')
 
 
 if __name__ == '__main__':

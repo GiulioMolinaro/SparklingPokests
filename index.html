@@ -281,7 +281,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .tracklist .n{font-stretch:75%;font-weight:600;letter-spacing:.14em;color:var(--muted);font-size:var(--t-label)}
 .tracklist .t{font-family:var(--serif);font-weight:500;font-size:var(--t-m);line-height:1.12;letter-spacing:-.01em}
 .tracklist .a{color:var(--muted);font-size:var(--t-small);text-align:right}
-.rep .foot{margin-top:18px;color:var(--muted);font-size:var(--t-small)}
+.rep-note{margin-top:18px;color:var(--muted);font-size:var(--t-small)}
 
 /* ───────────────────────── faq ───────────────────────── */
 .faq{padding:clamp(80px,10vw,150px) 0}
@@ -372,31 +372,42 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
   .mast{font-size:19.4vw;line-height:.84}
   .mast .mbr{display:inline}
   .mast .w2{display:inline-block;padding-left:.5em}
-  .mcta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:85;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:color-mix(in srgb, var(--ink) 92%, transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transform:translateY(110%);transition:transform .45s var(--ease)}
-  .mcta.show{transform:none}
-  .mcta .btn{flex:1;justify-content:center;padding:1em .8em;color:#fff}
-  .mcta .btn-line{flex:0 0 auto;border-color:rgba(255,255,255,.35)}
-  .foot{padding-bottom:72px}
+  .mcta{display:block;position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));z-index:85;transform:translate(-50%,calc(100% + 30px));transition:transform .45s var(--ease)}
+  .mcta.show{transform:translate(-50%,0)}
+  .mcta .btn{padding:.95em 1.5em;color:#fff;white-space:nowrap;box-shadow:0 0 0 2px var(--paper),0 10px 30px -8px rgba(20,16,21,.55)}
+  .foot{padding-bottom:64px}
+  /* timeline: one clean line "18:30 Aperitivo", the formula label is the only label */
+  .tempo-time .label{display:none}
+  .tempo-time{gap:14px}
+  .tempo-body .formula{margin-bottom:12px}
+  .ticks{display:none}
+  .serata-head{padding-bottom:8px}
+  .tempo{padding:44px 0}
+  .arrows{display:none}
   .contact .intro,.contact .direct,form.book{grid-row:auto}
   .contact .direct{margin-top:12px}
   .cover img{height:auto;aspect-ratio:4/3;object-position:50% 50%}
   .hero-foot{padding-top:34px}
   .hero-foot .lead,.hero-foot .cta{grid-column:1 / -1}
-  .hero-foot .cta{flex-direction:row;flex-wrap:wrap}
+  .hero-foot .cta{flex-direction:column;align-items:stretch}
+  .hero-foot .cta .btn{justify-content:space-between}
   .hero-foot .facts{grid-template-columns:1fr 1fr}
   .manifesto .label,.statement,.credits{grid-column:1 / -1}
   .credits{grid-template-columns:1fr 1fr;row-gap:18px}
   .serata-head .display,.serata-head p{grid-column:1 / -1}
   .tempo-body,.tempo-media{grid-column:1 / -1}
-  .tempo-media{justify-self:start}
-  .tempo-media.narrow{max-width:min(360px,78%)}
+  .tempo-media{justify-self:center}
+  .tempo-media.narrow{max-width:min(340px,74%)}
+  .tempo-media.narrow figcaption{justify-content:center}
   .per .label,.per ul,.per .note{grid-column:1 / -1}
+  .per ul{flex-direction:column;gap:2px}
+  .per li:not(:last-child)::after{content:none}
   .lineup .photo,.lineup .bill{grid-column:1 / -1}
   .lineup .photo{position:static}
   .rep-intro,.tracks{grid-column:1 / -1}
   .rep-head{position:relative;z-index:1}
   .rep{position:relative}
-  .vinyl{position:absolute;right:-24vw;top:18px;width:52vw;margin:0;z-index:0}
+  .vinyl{display:none}
   .rep-intro{position:static}
   .rep-intro > :not(.vinyl){position:relative;z-index:1}
   .faq .side,.qa{grid-column:1 / -1}
@@ -406,6 +417,8 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
 }
 @media (max-width:520px){
   form.book{grid-template-columns:1fr}
+  .chips{display:grid;grid-template-columns:1fr 1fr}
+  .chips span{display:block;text-align:center}
   .tracklist li{grid-template-columns:2.6em 1fr}
   .tracklist .a{grid-column:2;text-align:left;margin-top:-6px}
   .qa .a{padding-right:0}
@@ -525,8 +538,7 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
       </div>
       <figure class="tempo-media narrow rv" style="--d:.1s">
         <div class="player v916"><video preload="none" playsinline poster="video/acoustic-set.webp" src="video/acoustic-set.mp4"></video><button class="play" type="button"><span><i></i><span class="label">Acoustic set · 2:37</span></span></button></div>
-        <figcaption class="label"><span>Dal vivo</span><span>Acoustic set</span></figcaption>
-      </figure>
+              </figure>
     </div>
   </article>
 
@@ -543,8 +555,7 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
       </div>
       <figure class="tempo-media rv" style="--d:.1s">
         <div class="player v169"><video preload="none" playsinline poster="video/live.webp" src="video/live.mp4"></video><button class="play" type="button"><span><i></i><span class="label">Live show · 1:39</span></span></button></div>
-        <figcaption class="label"><span>Dal vivo</span><span>Live show</span></figcaption>
-      </figure>
+              </figure>
     </div>
   </article>
 
@@ -558,7 +569,7 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
       </div>
       <figure class="tempo-media narrow rv" style="--d:.1s">
         <div class="player v916"><video preload="none" playsinline poster="video/all-night-long.webp" src="video/all-night-long.mp4"></video><button class="play" type="button"><span><i></i><span class="label">All Night Long · 2:58</span></span></button></div>
-        <figcaption class="label"><span>Dal vivo</span><span><a href="https://www.youtube.com/@SparklingPockets" target="_blank" rel="noopener">Altri video su YouTube ↗</a></span></figcaption>
+        <figcaption class="label"><a href="https://www.youtube.com/@SparklingPockets" target="_blank" rel="noopener">Altri video su YouTube ↗</a></figcaption>
       </figure>
     </div>
   </article>
@@ -636,7 +647,7 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
         <button role="tab" aria-selected="false" aria-controls="tracklist" data-side="c" tabindex="-1"><b>Lato C</b><span class="label">Pop</span></button>
       </div>
       <ol class="tracklist" id="tracklist" role="tabpanel" aria-live="polite"></ol>
-      <p class="foot">Solo un assaggio: la lista completa è molto più lunga.</p>
+      <p class="rep-note">Solo un assaggio: la lista completa è molto più lunga.</p>
     </div>
   </div>
 </section>
@@ -715,7 +726,6 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
 <!-- mobile: barra fissa con le azioni principali -->
 <div class="mcta" id="mcta" aria-hidden="true">
   <a class="btn btn-solid" href="#contatti" tabindex="-1">Verifica la data <span class="arr" aria-hidden="true">→</span></a>
-  <a class="btn btn-line" href="mailto:sparklingpockets@gmail.com" tabindex="-1" aria-label="Scrivi una email">Email</a>
 </div>
 
 <script>
