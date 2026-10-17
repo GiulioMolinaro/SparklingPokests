@@ -3,7 +3,8 @@
 Usage: python build.py
 Minifies index.html (comments and whitespace in HTML, CSS and JS), copies
 only the folders the page needs, then zips the result with index.html at the
-root, ready for the 0sei Digital gestionale upload (max 50 MB, 300 files).
+root. It also reports whether the zip fits the 0sei Digital gestionale
+upload limits (50 MB, 300 files); the site itself is hosted on a NAS/Netlify.
 """
 import os
 import re
@@ -90,8 +91,9 @@ def main():
     if len(files) > MAX_FILES:
         problems.append(f'troppi file ({len(files)} su {MAX_FILES})')
     if problems:
-        sys.exit('ATTENZIONE: ' + '; '.join(problems))
-    print('OK per il gestionale: sotto 50 MB e 300 file')
+        print('Nota: non caricabile sul gestionale 0sei Digital (' + '; '.join(problems) + '). Va bene per NAS e Netlify.')
+    else:
+        print('OK anche per il gestionale: sotto 50 MB e 300 file')
 
 
 if __name__ == '__main__':

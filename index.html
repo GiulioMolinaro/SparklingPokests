@@ -222,20 +222,36 @@ button,input,select,textarea{font:inherit;color:inherit}
 .player .play:hover i{transform:scale(1.08)}
 .player.on .play{display:none}
 
-/* ───────────────────────── galleria eventi ───────────────────────── */
-.gal{padding:clamp(72px,9vw,130px) 0;border-top:1px solid var(--line)}
-.gal-head{display:grid;grid-template-columns:repeat(12,1fr);gap:16px var(--gutter);align-items:end;margin-bottom:clamp(28px,3.5vw,48px)}
-.gal-title{grid-column:1 / span 8}
-.gal-title .display{margin-top:14px}
-.gal-head p{grid-column:9 / span 4;color:var(--muted);max-width:34ch}
-.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-flow:dense;gap:12px}
-.gal-grid figure{margin:0}
-.gal-grid .wide{grid-column:span 2}
-.gal-grid button{display:block;width:100%;height:100%;aspect-ratio:2/3;padding:0;border:0;background:var(--ink-2);overflow:hidden;cursor:zoom-in}
-.gal-grid .wide button{aspect-ratio:auto}
-.gal-more{display:none}
-.gal-grid img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
-.gal-grid button:hover img{transform:scale(1.035)}
+/* ───────────────────────── diario ───────────────────────── */
+.diary{padding:clamp(80px,10vw,150px) 0}
+.diary-head{display:grid;grid-template-columns:repeat(12,1fr);gap:20px var(--gutter);align-items:end;margin-bottom:clamp(32px,4vw,56px)}
+.diary-title{grid-column:1 / span 7}
+.diary-title .display{margin-top:14px}
+.diary-intro{grid-column:9 / span 4;display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+.diary-intro p{color:var(--muted);max-width:36ch}
+.feed{columns:3;column-gap:18px}
+.post{break-inside:avoid;margin:0 0 18px;display:block}
+.post-media{position:relative;display:block;width:100%;padding:0;border:0;background:var(--paper-2);cursor:zoom-in;overflow:hidden}
+.post-media img{width:100%;transition:transform .9s var(--ease)}
+.post-media:hover img{transform:scale(1.03)}
+.post-media .count{position:absolute;left:12px;bottom:12px;background:rgba(20,16,21,.78);color:#fff;padding:6px 9px}
+.post-body{padding:16px 2px 6px}
+.post-body h3,.note blockquote{font-family:var(--serif);font-weight:500;font-size:var(--t-m);line-height:1.18;letter-spacing:-.01em;margin:8px 0 8px;font-optical-sizing:none;font-variation-settings:'opsz' 22}
+.post-body h3 em,.note blockquote em{font-style:italic}
+.post-body p:not(.label){color:var(--muted);font-size:var(--t-small)}
+.post .ig{display:inline-block;margin-top:14px;text-decoration:none;border-bottom:1.5px solid currentColor;padding-bottom:2px}
+.note{padding:clamp(22px,2.4vw,32px)}
+.note blockquote{font-size:var(--t-l);line-height:1.1;margin:14px 0 12px}
+.note blockquote::before{content:"\201C";display:block;font-size:2.4em;line-height:.6;margin-bottom:.12em}
+.note p:not(.label){font-size:var(--t-small);opacity:.85}
+.note.fuchsia{background:var(--fuchsia);color:#fff}
+.note.ink{background:var(--ink);color:var(--ink-text)}
+.note.ink .label{color:var(--ink-muted)}
+.note.line{border:1.5px solid var(--paper-text)}
+.note.paper{background:var(--paper-2)}
+.note.fuchsia blockquote::before,.note.ink blockquote::before{color:var(--gold-hi)}
+.note.line blockquote::before,.note.paper blockquote::before{color:var(--fuchsia)}
+.feed-more{display:none}
 
 .lb{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:rgba(14,11,15,.96);color:var(--ink-text)}
 .lb::backdrop{background:transparent}
@@ -246,6 +262,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .lb .x{top:14px;right:14px}
 .lb .prev{left:14px;top:50%;transform:translateY(-50%)}
 .lb .next{right:14px;top:50%;transform:translateY(-50%)}
+.lb.single .prev,.lb.single .next{display:none}
 .lb .count{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:var(--ink-muted)}
 
 /* ───────────────────────── line-up ───────────────────────── */
@@ -369,6 +386,7 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
 
 /* ───────────────────────── responsive ───────────────────────── */
 @media (max-width:1100px){
+  .feed{columns:2}
   .hero-foot .lead{grid-column:1 / span 7}
   .hero-foot .cta{grid-column:8 / span 5}
   .hero-foot .facts{grid-column:1 / -1;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
@@ -421,14 +439,12 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
   .per .label,.per ul,.per .note{grid-column:1 / -1}
   .per ul{flex-direction:column;gap:2px}
   .per li:not(:last-child)::after{content:none}
-  .gal-title,.gal-head > p{grid-column:1 / -1}
-  .gal-grid{grid-template-columns:1fr 1fr;gap:8px}
-  .gal-grid .wide{grid-column:1 / -1}
-  .gal-grid .wide button{aspect-ratio:3/2}
-  /* on phones show the first six, the rest behind a button */
-  .gal-grid:not(.all) figure:nth-child(n+7){display:none}
-  .gal-more{display:flex;justify-content:center;width:100%;margin-top:18px}
-  .gal-grid.all + .gal-more{display:none}
+  .diary-title,.diary-intro{grid-column:1 / -1}
+  .feed{columns:1}
+  /* on phones show the first four stories, the rest behind a button */
+  .feed:not(.all) .post:nth-child(n+5){display:none}
+  .feed-more{display:flex;justify-content:center;margin-top:6px}
+  .feed.all + .feed-more{display:none}
   .lb .prev,.lb .next{top:auto;bottom:10px;transform:none}
   .lineup .photo,.lineup .bill{grid-column:1 / -1}
   .lineup .photo{position:static}
@@ -461,7 +477,7 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
     <a class="brand" href="#top" aria-label="Sparkling Pockets, torna all'inizio"><img src="assets/logo-s.webp" alt="" width="56" height="80">Sparkling Pockets</a>
     <nav class="nav" aria-label="Principale">
       <a href="#serata">La serata</a>
-      <a href="#galleria">Galleria</a>
+      <a href="#diario">Diario</a>
       <a href="#band">La band</a>
       <a href="#repertorio">Repertorio</a>
       <a href="#faq">Domande</a>
@@ -474,7 +490,7 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
 <div class="sheet" id="sheet" aria-hidden="true">
   <nav aria-label="Menu mobile">
     <a href="#serata">La serata</a>
-    <a href="#galleria">Galleria</a>
+    <a href="#diario">Diario</a>
     <a href="#band">La band</a>
     <a href="#repertorio">Repertorio</a>
     <a href="#faq">Domande</a>
@@ -510,7 +526,7 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
       <ul class="facts rv" style="--d:.16s">
         <li><span>Formazione</span><span>7 elementi</span></li>
         <li><span>Voci</span><span>2 soliste</span></li>
-        <li><span>Formule</span><span>Party, acoustic, chill-out</span></li>
+        <li><span>Formule</span><span>Party, roaming, acoustic</span></li>
         <li><span>Repertorio</span><span>Scelto da voi</span></li>
       </ul>
     </div>
@@ -544,14 +560,13 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
     <div class="wrap grid">
       <div class="tempo-time"><span class="label">Primo tempo</span><b>18:30</b><span class="name">Aperitivo</span></div>
       <div class="tempo-body rv">
-        <p class="label formula">Formula chill-out</p>
-        <h3 class="h3">Si brinda, si chiacchiera, <em>la musica fa da cornice.</em></h3>
-        <p class="txt">Una playlist dal vivo morbida e ambient, a un volume pensato per parlare. Il sottofondo perfetto per il benvenuto agli ospiti o per un momento lounge.</p>
-        <ul class="ticks"><li>Volume da conversazione</li><li>Repertorio soft, soul e lounge</li><li>Anche in formazione acustica</li></ul>
+        <p class="label formula">Formula roaming band</p>
+        <h3 class="h3">La musica arriva <em>tra gli ospiti.</em></h3>
+        <p class="txt">Niente palco: contrabbasso, chitarra e voci si muovono tra i tavoli del buffet, in giardino e nei saloni. La festa comincia ovunque siano gli ospiti.</p>
+        <ul class="ticks"><li>Musicisti in movimento, senza palco</li><li>Perfetta per il benvenuto e l'aperitivo</li><li>Si sposta con voi tra gli spazi della location</li></ul>
       </div>
-      <figure class="tempo-media rv" style="--d:.1s">
-        <div class="photo"><img src="assets/voci-piano-800.webp" srcset="assets/voci-piano-800.webp 800w, assets/voci-piano-1400.webp 1400w" sizes="(min-width:860px) 40vw, 100vw" width="1400" height="933" loading="lazy" alt="Le due cantanti accanto a un pianoforte d'epoca, una in abito fucsia e l'altra in nero."></div>
-        <figcaption class="label"><span>Le voci</span><span>Federica &amp; Krensly</span></figcaption>
+      <figure class="tempo-media narrow rv" style="--d:.1s">
+        <div class="player v916"><video preload="none" playsinline poster="video/roaming.webp" src="video/roaming.mp4"></video><button class="play" type="button"><span><i></i><span class="label">Roaming band · 3:24</span></span></button></div>
       </figure>
     </div>
   </article>
@@ -560,10 +575,10 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
     <div class="wrap grid">
       <div class="tempo-time"><span class="label">Secondo tempo</span><b>20:30</b><span class="name">Cena</span></div>
       <div class="tempo-body rv">
-        <p class="label formula">Formula acoustic</p>
+        <p class="label formula">Formula acoustic &amp; chill-out</p>
         <h3 class="h3">Unplugged, <em>tra una portata e l'altra.</em></h3>
-        <p class="txt">Formazione ridotta e su misura, su richiesta. Atmosfera calda e raffinata, ideale per cerimonie e cene.</p>
-        <ul class="ticks"><li>Formazione su misura</li><li>Ideale per cerimonie e cene</li><li>Atmosfera calda e raffinata</li></ul>
+        <p class="txt">Una playlist dal vivo morbida, tra soul e lounge, a un volume pensato per parlare. Su richiesta in formazione acustica ridotta: atmosfera calda, ideale per cerimonie e cene.</p>
+        <ul class="ticks"><li>Volume da conversazione</li><li>Formazione ridotta su misura</li><li>Ideale per cerimonie e cene</li></ul>
       </div>
       <figure class="tempo-media narrow rv" style="--d:.1s">
         <div class="player v916"><video preload="none" playsinline poster="video/acoustic-set.webp" src="video/acoustic-set.mp4"></video><button class="play" type="button"><span><i></i><span class="label">Acoustic set · 2:37</span></span></button></div>
@@ -612,31 +627,69 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
   </div>
 </section>
 
-<!-- ═════════════ GALLERIA EVENTI ═════════════ -->
-<!-- Per aggiungere una foto: copia un <figure> e cambia src, width/height e alt. La classe "wide" va sulle foto orizzontali.
-     Su desktop le righe sono piene se (verticali + 2 x orizzontali) è un multiplo di 4. -->
-<section id="galleria" class="gal t-ink" data-header="dark" aria-labelledby="gal-t">
+<!-- ═════════════ DIARIO ═════════════ -->
+<!-- Per aggiungere una storia: copia un <article class="post"> in cima alla lista.
+     Racconto con foto: la prima immagine è la copertina, le altre vanno nel <div class="set"> con data-src.
+     Nota senza foto: <article class="post note ..."> con tono fuchsia, ink, line oppure paper. -->
+<section id="diario" class="diary t-paper" data-header="light" aria-labelledby="dia-t">
   <div class="wrap">
-    <div class="gal-head">
-      <div class="gal-title"><p class="label muted">Galleria</p><h2 class="display rv" id="gal-t">Sul palco <em>e fuori scena.</em></h2></div>
-      <p class="rv" style="--d:.08s">Le nostre serate dal vivo e il nostro servizio fotografico. Toccate una foto per vederla a tutto schermo.</p>
+    <div class="diary-head">
+      <div class="diary-title"><p class="label muted">Diario</p><h2 class="display rv" id="dia-t">Il nostro <em>diario di bordo.</em></h2></div>
+      <div class="diary-intro rv" style="--d:.08s"><p>Serate, prove e dietro le quinte: un po' di quello che raccontiamo ogni settimana su Instagram.</p><a class="btn btn-line" href="https://www.instagram.com/sparkling_pockets/" target="_blank" rel="noopener">Seguiteci su Instagram <span class="arr" aria-hidden="true">↗</span></a></div>
     </div>
-    <div class="gal-grid" id="gal">
-      <figure class="wide rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/live-voci.webp" width="1600" height="1066" loading="lazy" alt="Le due cantanti sul palco, con il chitarrista alle loro spalle, in un locale illuminato da luci calde."></button></figure>
-      <figure class="rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/live-tamburello.webp" width="1066" height="1600" loading="lazy" alt="Una delle cantanti suona il tamburello e canta al microfono durante una serata dal vivo."></button></figure>
-      <figure class="rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/live-chitarra.webp" width="1066" height="1600" loading="lazy" alt="Una delle cantanti canta tenendo il microfono, accanto al chitarrista con una chitarra rossa."></button></figure>
-      <figure class="rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/ritratto-7023-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto di una delle cantanti in abito di paillettes."></button></figure>
-      <figure class="wide rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/band-giardino-900.webp" width="900" height="600" loading="lazy" alt="La band in giardino, le cantanti con una gamba alzata e il chitarrista con la sua Telecaster."></button></figure>
-      <figure class="rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/ritratto-7119-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto di una delle cantanti in abito color rame."></button></figure>
-      <figure class="rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/ritratto-7215-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto del chitarrista con la chitarra a tracolla."></button></figure>
-      <figure class="rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/ritratto-7152-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto di un musicista con gilet, a braccia conserte, davanti a un clavicembalo."></button></figure>
-      <figure class="wide rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/band-scalinata-800.webp" width="800" height="533" loading="lazy" alt="La band in posa su una scalinata coperta d'edera."></button></figure>
-      <figure class="rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/ritratto-6911-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto di un musicista in giacca nera appoggiato a una colonna."></button></figure>
-      <figure class="rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/ritratto-7059-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto di una delle cantanti mentre canta al microfono."></button></figure>
-      <figure class="rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/ritratto-6980-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto di un musicista in giacca blu."></button></figure>
-      <figure class="rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/ritratto-7192-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto di un musicista con gilet davanti a una finestra."></button></figure>
+    <div class="feed" id="feed">
+      <article class="post note fuchsia rv">
+        <p class="label">12 ottobre 2026 · Bar Tesoro, Locarno</p>
+        <blockquote>Friday night <em>groove!</em></blockquote>
+        <p>Aperitivo, drink e tanta musica live tra soul, funk, disco e pop.</p>
+        <a class="ig label" href="https://www.instagram.com/sparkling_pockets/p/DeaDD2-oX0L/" target="_blank" rel="noopener">Leggi il post ↗</a>
+      </article>
+      <article class="post rv" style="--d:.06s">
+        <button class="post-media" type="button" aria-label="Apri le foto a tutto schermo"><img src="assets/live-voci.webp" width="1600" height="1066" loading="lazy" alt="Le due cantanti sul palco della Pizzeria Piedigrotta, con il chitarrista alle loro spalle."><span class="count label">3 foto</span></button>
+          <div class="set" hidden><img data-src="assets/live-tamburello.webp" alt="Una delle cantanti suona il tamburello e canta al microfono."><img data-src="assets/live-chitarra.webp" alt="Una delle cantanti canta accanto al chitarrista con una chitarra rossa."></div>
+        <div class="post-body">
+          <p class="label muted">2 ottobre 2026 · Pizzeria Piedigrotta, Varese</p>
+          <h3>Pizza, vini e <em>tanta bella energia.</em></h3>
+          <p>Ottima pizza, una degustazione di vini spettacolari e un pubblico che ha cantato e ballato con noi. Gli ingredienti perfetti per una serata da ricordare.</p>
+          <a class="ig label" href="https://www.instagram.com/sparkling_pockets/reel/Dd_PXzyKnUy/" target="_blank" rel="noopener">Su Instagram ↗</a>
+        </div>
+      </article>
+      <article class="post note ink rv" style="--d:.12s">
+        <p class="label">12 settembre 2026 · Villa Bossi</p>
+        <blockquote>Musica, emozioni e <em>tanta voglia di divertirsi.</em></blockquote>
+        <p>Un matrimonio splendido. Grazie per averci scelto per un giorno così speciale.</p>
+        <a class="ig label" href="https://www.instagram.com/sparkling_pockets/reel/DdL1I8YIyWM/" target="_blank" rel="noopener">Leggi il post ↗</a>
+      </article>
+      <article class="post note line rv">
+        <p class="label">9 settembre 2026 · In sala prove</p>
+        <blockquote>Prove <em>bollenti.</em> 🔥</blockquote>
+        <a class="ig label" href="https://www.instagram.com/sparkling_pockets/reel/DdEOPX9K0YC/" target="_blank" rel="noopener">Leggi il post ↗</a>
+      </article>
+      <article class="post rv" style="--d:.06s">
+        <button class="post-media" type="button" aria-label="Apri le foto a tutto schermo"><img src="assets/band-biliardo-900.webp" srcset="assets/band-biliardo-900.webp 900w, assets/band-biliardo-1600.webp 1600w" sizes="(min-width:1100px) 33vw, (min-width:860px) 50vw, 100vw" width="1600" height="1067" loading="lazy" alt="La band intorno a un tavolo da biliardo in una biblioteca, con le due cantanti in primo piano."></button>
+        <div class="post-body">
+          <p class="label muted">5 settembre 2026 · Dal servizio fotografico</p>
+          <h3>We don't play games. <em>We play music.</em></h3>
+          <p>Tutta la band intorno al tavolo da biliardo, ma nessuno ha toccato una stecca.</p>
+          <a class="ig label" href="https://www.instagram.com/sparkling_pockets/p/Dc5q8ocqZ1A/" target="_blank" rel="noopener">Su Instagram ↗</a>
+        </div>
+      </article>
+      <article class="post note paper rv" style="--d:.12s">
+        <p class="label">30 luglio 2026</p>
+        <blockquote>Previsioni: caldo torrido. <em>Dress code: impeccabile.</em> 😎</blockquote>
+        <a class="ig label" href="https://www.instagram.com/sparkling_pockets/p/DbanisfIVQB/" target="_blank" rel="noopener">Leggi il post ↗</a>
+      </article>
+      <article class="post rv">
+        <button class="post-media" type="button" aria-label="Apri le foto a tutto schermo"><img src="assets/ritratto-7023-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto di una delle cantanti in abito di paillettes."><span class="count label">11 foto</span></button>
+          <div class="set" hidden><img data-src="assets/voci-piano-1400.webp" alt="Le due cantanti accanto a un pianoforte d'epoca."><img data-src="assets/band-giardino-900.webp" alt="La band in giardino, le cantanti con una gamba alzata."><img data-src="assets/ritratto-7119-800.webp" alt="Ritratto di una delle cantanti in abito color rame."><img data-src="assets/ritratto-7215-800.webp" alt="Ritratto del chitarrista con la chitarra a tracolla."><img data-src="assets/ritratto-7152-800.webp" alt="Ritratto di un musicista con gilet davanti a un clavicembalo."><img data-src="assets/band-scalinata-800.webp" alt="La band su una scalinata coperta d'edera."><img data-src="assets/ritratto-6911-800.webp" alt="Ritratto di un musicista in giacca nera appoggiato a una colonna."><img data-src="assets/ritratto-7059-800.webp" alt="Ritratto di una delle cantanti mentre canta al microfono."><img data-src="assets/ritratto-6980-800.webp" alt="Ritratto di un musicista in giacca blu."><img data-src="assets/ritratto-7192-800.webp" alt="Ritratto di un musicista con gilet davanti a una finestra."></div>
+        <div class="post-body">
+          <p class="label muted">2025 · Il nostro servizio fotografico</p>
+          <h3>Saloni affrescati, giardini <em>e molti cambi d'abito.</em></h3>
+          <p>Una villa, un fotografo e tutta la band: quasi tutte le foto di questo sito vengono da questa giornata.</p>
+        </div>
+      </article>
     </div>
-    <div class="gal-more"><button class="btn btn-line" type="button" id="gal-more">Vedi tutte le foto (13) <span class="arr" aria-hidden="true">↓</span></button></div>
+    <div class="feed-more"><button class="btn btn-line" type="button" id="feed-more">Altre storie <span class="arr" aria-hidden="true">↓</span></button></div>
   </div>
 </section>
 
@@ -653,7 +706,7 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
   <div class="lineup">
     <div class="wrap grid">
       <figure class="photo rv">
-        <img src="assets/band-biliardo-900.webp" srcset="assets/band-biliardo-900.webp 900w, assets/band-biliardo-1600.webp 1600w" sizes="(min-width:860px) 50vw, 100vw" width="1600" height="1067" loading="lazy" alt="La band intorno a un tavolo da biliardo in una biblioteca, con le due cantanti in primo piano.">
+        <img src="assets/band-scalinata-800.webp" srcset="assets/band-scalinata-800.webp 800w, assets/band-scalinata-1400.webp 1400w" sizes="(min-width:860px) 50vw, 100vw" width="1400" height="933" loading="lazy" alt="La band in posa su una scalinata coperta d'edera, con il chitarrista e la sua Telecaster.">
         <figcaption class="label">La band al completo</figcaption>
       </figure>
       <div class="bill">
@@ -709,7 +762,7 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
     <div class="qa">
       <details><summary>Che genere di musica suonate?<i aria-hidden="true"></i></summary><p class="a">Pop, disco, soul e funk degli ultimi quarant'anni: i pezzi che tutti conoscono e che fanno ballare tutte le generazioni. Per aperitivi e cene proponiamo anche una playlist più morbida e ambient.</p></details>
       <details><summary>Possiamo scegliere le canzoni?<i aria-hidden="true"></i></summary><p class="a">Sì. Vi mandiamo la nostra lista e scegliete i vostri preferiti, dai momenti più tranquilli a quelli più scatenati. La scaletta la costruiamo insieme.</p></details>
-      <details><summary>Avete una formazione più piccola?<i aria-hidden="true"></i></summary><p class="a">Sì, su richiesta suoniamo in formazione acustica ridotta: perfetta per cerimonie, aperitivi e cene, o dove lo spazio è limitato.</p></details>
+      <details><summary>Avete una formazione più piccola?<i aria-hidden="true"></i></summary><p class="a">Sì. Su richiesta suoniamo in formazione acustica ridotta, perfetta per cerimonie e cene. Per l'aperitivo c'è anche la roaming band: musicisti che si muovono tra gli ospiti, senza bisogno di un palco.</p></details>
       <details><summary>Portate impianto audio e luci?<i aria-hidden="true"></i></summary><p class="a">Sì, portiamo noi impianto audio e luci: a voi non resta che pensare agli ospiti.</p></details>
       <details><summary>Quanto costa?<i aria-hidden="true"></i></summary><p class="a">Ogni serata è diversa: il preventivo dipende dalla formazione, dalla durata e dal luogo. Scriveteci data e location e vi mandiamo una proposta su misura.</p></details>
     </div>
@@ -852,18 +905,27 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
     v.addEventListener('play', () => videos.forEach(o => o !== v && o.pause()));
   });
 
-  /* event gallery: full-screen viewer with arrows, keyboard and swipe */
+  /* diary: each story opens its own set of photos full screen */
   const lb = $('#lb'), lbImg = $('img', lb), lbCount = $('.count', lb);
-  const shots = $$('#gal img');
-  let cur = 0;
+  let shots = [], cur = 0;
   const show = i => {
     cur = (i + shots.length) % shots.length;
-    lbImg.src = shots[cur].src;
-    lbImg.alt = shots[cur].alt;
-    lbCount.textContent = `${cur + 1} / ${shots.length}`;
+    const im = shots[cur];
+    lbImg.src = im.dataset.src || im.currentSrc || im.src;
+    lbImg.alt = im.alt;
+    lbCount.textContent = shots.length > 1 ? `${cur + 1} / ${shots.length}` : '';
+    lb.classList.toggle('single', shots.length < 2);
   };
-  $$('#gal button').forEach((b, i) => b.addEventListener('click', () => { show(i); lb.showModal(); }));
-  $('#gal-more').addEventListener('click', () => $('#gal').classList.add('all'));
+  $$('.post').forEach(post => {
+    const btn = $('.post-media', post);
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      shots = [$('img', btn), ...$$('.set img', post)];
+      show(0);
+      lb.showModal();
+    });
+  });
+  $('#feed-more').addEventListener('click', () => $('#feed').classList.add('all'));
   $('.x', lb).addEventListener('click', () => lb.close());
   $('.prev', lb).addEventListener('click', () => show(cur - 1));
   $('.next', lb).addEventListener('click', () => show(cur + 1));
