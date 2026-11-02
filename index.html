@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sparkling Pockets · Party band per matrimoni, feste ed eventi</title>
-<meta name="description" content="Sparkling Pockets è una party band di sette elementi con due voci soliste: pop, disco e soul degli ultimi quarant'anni dal vivo, per matrimoni, feste private ed eventi aziendali. Anche in formazione acustica.">
-<meta name="theme-color" content="#F2ECE2">
+<meta name="description" content="Sparkling Pockets è una party band di sette elementi con due voci soliste: pop, disco, funk e soul degli ultimi quarant'anni dal vivo, per matrimoni, feste private, eventi aziendali, locali e ristoranti. Anche in formazione acustica e roaming.">
+<meta name="theme-color" content="#141015">
 <link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sparkling Pockets · Party & More">
-<meta property="og:description" content="Sette musicisti, due voci e quarant'anni di pop, disco e soul dal vivo. Per matrimoni, feste ed eventi.">
+<meta property="og:description" content="Sette musicisti, due voci e quarant'anni di pop, disco, funk e soul dal vivo. Per matrimoni, feste ed eventi.">
 <meta property="og:image" content="assets/og-image.jpg">
 <meta property="og:locale" content="it_IT">
 <meta name="twitter:card" content="summary_large_image">
@@ -60,6 +60,8 @@
   --ease:cubic-bezier(.2,.7,.1,1);
 }
 /* every serif role shares one optical size so hairlines stay readable */
+/* small serif text uses the sturdiest optical size and a heavier weight: thin hairlines vanish at this size */
+body .credits dd,body .roster .who,body .tracklist .t,body .qa summary,body .direct .v,body .tempo-time .name{font-variation-settings:'opsz' 6;font-weight:600;letter-spacing:0}
 .display,.h3,.mast,.brand,.sheet nav a,.hero-foot .lead,.statement,.credits dd,.tempo-time b,.tempo-time .name,.per ul,.roster .who,.sides button b,.tracklist .t,.qa summary,.direct .v,.f input[type=date],.foot .big,.vinyl .lbl{font-optical-sizing:none;font-variation-settings:'opsz' 22}
 *,*::before,*::after{box-sizing:border-box}
 *{margin:0;padding:0}
@@ -137,6 +139,10 @@ button,input,select,textarea{font:inherit;color:inherit}
 .sheet .btn{margin-top:16px;align-self:flex-start}
 
 /* ───────────────────────── hero (cover) ───────────────────────── */
+.mast.logo{width:100%;padding:0;margin:0 0 clamp(14px,1.8vw,26px);font-size:0;line-height:0;letter-spacing:0;white-space:normal}
+.mast.logo img{width:100%;height:auto;display:block}
+@media(min-width:861px){.mast.logo{max-width:min(100%,1010px)}}
+.t-ink .hero-foot .lead em{color:var(--fuchsia-hi)}
 .hero{padding-top:calc(var(--header) + 6px)}
 .cover-strip{display:flex;justify-content:space-between;gap:16px;padding:10px 0 14px;border-bottom:1px solid var(--line)}
 .mast-wrap{padding:clamp(10px,1.6vw,22px) 0 0;overflow:hidden}
@@ -284,8 +290,9 @@ button,input,select,textarea{font:inherit;color:inherit}
 
 .tracks{grid-column:7 / span 6}
 .sides{display:flex;gap:0;border-bottom:1px solid var(--line);margin-bottom:6px}
-.sides button{flex:1;background:none;border:0;padding:14px 4px 12px;cursor:pointer;text-align:left;color:var(--muted);position:relative;transition:color .2s}
-.sides button b{display:block;font-family:var(--serif);font-size:var(--t-l);font-weight:600;line-height:1;color:var(--fg);opacity:.55;transition:opacity .2s}
+.sides button{flex:1;background:none;border:0;padding:14px 4px 12px;cursor:pointer;text-align:left;color:var(--muted);position:relative;transition:color .2s;display:flex;flex-direction:column;justify-content:space-between;gap:8px}
+.sides button[data-side=b]{flex:1.9}
+.sides button b{display:block;font-family:var(--serif);font-size:var(--t-m);font-weight:600;line-height:1;color:var(--fg);opacity:.55;transition:opacity .2s}
 .sides button[aria-selected=true]{color:var(--fg)}
 .sides button[aria-selected=true] b{opacity:1}
 .sides button::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--fg);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
@@ -460,7 +467,7 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Sparkling Pockets, torna all'inizio"><img src="assets/logo-s.webp" alt="" width="56" height="80">Sparkling Pockets</a>
     <nav class="nav" aria-label="Principale">
-      <a href="#serata">La serata</a>
+      <a href="#proposte">Proposte</a>
       <a href="#galleria">Galleria</a>
       <a href="#band">La band</a>
       <a href="#repertorio">Repertorio</a>
@@ -473,7 +480,7 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
 
 <div class="sheet" id="sheet" aria-hidden="true">
   <nav aria-label="Menu mobile">
-    <a href="#serata">La serata</a>
+    <a href="#proposte">Proposte</a>
     <a href="#galleria">Galleria</a>
     <a href="#band">La band</a>
     <a href="#repertorio">Repertorio</a>
@@ -486,7 +493,7 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
 <main id="main">
 
 <!-- ═════════════ COVER ═════════════ -->
-<section class="hero t-paper" id="top" data-header="light">
+<section class="hero t-ink" id="top" data-header="dark">
   <div class="wrap">
     <div class="cover-strip label">
       <span>Live music entertainment</span>
@@ -494,24 +501,22 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
       <span>Matrimoni, feste, eventi</span>
     </div>
     <div class="mast-wrap">
-      <h1 class="mast" id="mast" aria-label="Sparkling Pockets">
-        <img class="s" src="assets/logo-s.webp" alt="" width="167" height="240" aria-hidden="true"><span class="w" aria-hidden="true">parkling</span><br class="mbr"> <span class="w w2" aria-hidden="true">Pockets</span>
-      </h1>
+      <h1 class="mast logo" id="mast"><img src="assets/logo-scritta-1600.webp" srcset="assets/logo-scritta-800.webp 800w, assets/logo-scritta-1600.webp 1600w" sizes="(min-width:1400px) 1288px, calc(100vw - 32px)" width="1600" height="380" alt="Sparkling Pockets" fetchpriority="high"></h1>
     </div>
     <figure class="cover">
       <img src="assets/band-palazzo-1200.webp" srcset="assets/band-palazzo-1200.webp 1200w, assets/band-palazzo-2400.webp 2400w" sizes="(min-width:1400px) 1400px, 100vw" width="2400" height="1601" alt="I sette musicisti degli Sparkling Pockets seduti su una panca in un salone affrescato: le due cantanti in abito fucsia e pantaloni blu, i musicisti in completo nero." fetchpriority="high">
     </figure>
     <div class="hero-foot">
-      <p class="lead rv">La party band di sette elementi che fa ballare tutti, dal primo all'ultimo ospite: pop, disco e soul degli ultimi quarant'anni, <em>dal vivo come non li avete mai sentiti.</em></p>
+      <p class="lead rv">La party band di sette elementi che fa ballare tutti, dal primo all'ultimo ospite: pop, disco, funk e soul degli ultimi quarant'anni, <em>pure live music!</em></p>
       <div class="cta rv" style="--d:.08s">
         <a class="btn btn-solid" href="#contatti">Verifica la tua data <span class="arr" aria-hidden="true">→</span></a>
-        <a class="btn btn-line" href="#serata">Guardaci dal vivo <span class="arr" aria-hidden="true">↓</span></a>
+        <a class="btn btn-line" href="#proposte">Guardaci dal vivo <span class="arr" aria-hidden="true">↓</span></a>
       </div>
       <ul class="facts rv" style="--d:.16s">
         <li><span>Formazione</span><span>7 elementi</span></li>
         <li><span>Voci</span><span>2 soliste</span></li>
-        <li><span>Formule</span><span>Party, acoustic, chill-out</span></li>
-        <li><span>Repertorio</span><span>Scelto da voi</span></li>
+        <li><span>Formule</span><span>Party, acoustic, roaming</span></li>
+        <li><span>Repertorio</span><span>Pop, funk, disco</span></li>
       </ul>
     </div>
   </div>
@@ -521,83 +526,66 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
 <section class="manifesto t-paper" data-header="light">
   <div class="wrap grid">
     <p class="label muted">Chi siamo</p>
-    <p class="statement rv">Sette musicisti, due voci e un'unica regola: <em>nessuno resta seduto.</em> Dall'aperitivo all'ultimo ballo costruiamo la serata intorno a voi e ai vostri ospiti.</p>
+    <p class="statement rv">Sette musicisti, due voci per <em>un evento indimenticabile,</em> dall'aperitivo all'ultimo ballo per tutti gli ospiti.</p>
     <dl class="credits rv">
       <div><dt class="label">Ritmica</dt><dd>Batteria, basso</dd></div>
       <div><dt class="label">Armonia</dt><dd>Tastiere, chitarra</dd></div>
-      <div><dt class="label">Fiati</dt><dd>Tromba &amp; sax</dd></div>
+      <div><dt class="label">Fiati</dt><dd>Tromba</dd></div>
       <div><dt class="label">Voci</dt><dd>Due soliste</dd></div>
     </dl>
   </div>
 </section>
 
-<!-- ═════════════ LA SERATA ═════════════ -->
-<section id="serata" aria-labelledby="serata-t">
+<!-- ═════════════ LE NOSTRE PROPOSTE ═════════════ -->
+<section id="proposte" aria-labelledby="proposte-t">
   <div class="serata-head t-paper2" data-header="light">
     <div class="wrap grid">
-      <h2 class="display rv" id="serata-t">Una serata in <em>quattro tempi.</em></h2>
-      <p class="rv" style="--d:.1s">Ogni festa ha il suo ritmo. Per ogni momento abbiamo una formula, e la musica cambia con la luce.</p>
+      <h2 class="display rv" id="proposte-t">Le nostre <em>proposte.</em></h2>
+      <p class="rv" style="--d:.1s">Dall'aperitivo in compagnia alla pista da ballo: tre formule, e ognuna si adatta alla vostra serata.</p>
     </div>
   </div>
 
   <article class="tempo t-paper2" data-header="light">
     <div class="wrap grid">
-      <div class="tempo-time"><span class="label">Primo tempo</span><b>18:30</b><span class="name">Aperitivo</span></div>
+      <div class="tempo-time"><span class="label">Proposta</span><b>01</b><span class="name">Chill-out</span></div>
       <div class="tempo-body rv">
         <p class="label formula">Formula chill-out</p>
-        <h3 class="h3">Si brinda, si chiacchiera, <em>la musica fa da cornice.</em></h3>
-        <p class="txt">Una playlist dal vivo morbida e ambient, a un volume pensato per parlare. Il sottofondo perfetto per il benvenuto agli ospiti o per un momento lounge.</p>
-        <ul class="ticks"><li>Volume da conversazione</li><li>Repertorio soft, soul e lounge</li><li>Anche in formazione acustica</li></ul>
+        <h3 class="h3">La musica fa da cornice <em>per un aperitivo in compagnia.</em></h3>
+        <p class="txt">Una playlist dal vivo morbida e ambient, a un volume adatto al contesto. Il sottofondo perfetto per il benvenuto agli ospiti o per un momento lounge.</p>
+        <ul class="ticks"><li>Volume da conversazione</li><li>Repertorio smooth, dal soul all'R&amp;B</li><li>Anche in formazione acustica</li></ul>
       </div>
-      <figure class="tempo-media rv" style="--d:.1s">
-        <div class="photo"><img src="assets/voci-piano-800.webp" srcset="assets/voci-piano-800.webp 800w, assets/voci-piano-1400.webp 1400w" sizes="(min-width:860px) 40vw, 100vw" width="1400" height="933" loading="lazy" alt="Le due cantanti accanto a un pianoforte d'epoca, una in abito fucsia e l'altra in nero."></div>
-        <figcaption class="label"><span>Le voci</span><span>Federica &amp; Krensly</span></figcaption>
+      <figure class="tempo-media narrow rv" style="--d:.1s">
+        <div class="player v916"><video preload="none" playsinline poster="video/acoustic-set.webp" src="video/acoustic-set.mp4"></video><button class="play" type="button"><span><i></i><span class="label">Chill-out dal vivo · 2:37</span></span></button></div>
       </figure>
     </div>
   </article>
 
   <article class="tempo t-paper2" data-header="light">
     <div class="wrap grid">
-      <div class="tempo-time"><span class="label">Secondo tempo</span><b>20:30</b><span class="name">Cena</span></div>
+      <div class="tempo-time"><span class="label">Proposta</span><b>02</b><span class="name">Acoustic</span></div>
       <div class="tempo-body rv">
         <p class="label formula">Formula acoustic</p>
-        <h3 class="h3">Unplugged, <em>tra una portata e l'altra.</em></h3>
-        <p class="txt">Formazione ridotta e su misura, su richiesta. Atmosfera calda e raffinata, ideale per cerimonie e cene.</p>
-        <ul class="ticks"><li>Formazione su misura</li><li>Ideale per cerimonie e cene</li><li>Atmosfera calda e raffinata</li></ul>
+        <h3 class="h3">Roaming band, <em>tra una portata e l'altra.</em></h3>
+        <p class="txt">Formazione ridotta e su misura, su richiesta. Il riempimento perfetto per intrattenere gli ospiti tra le portate di cerimonie, pranzi e cene.</p>
+        <ul class="ticks"><li>Formazione su misura</li><li>Repertorio in chiave acustica roaming</li><li>Atmosfera calda e raffinata</li></ul>
       </div>
       <figure class="tempo-media narrow rv" style="--d:.1s">
-        <div class="player v916"><video preload="none" playsinline poster="video/acoustic-set.webp" src="video/acoustic-set.mp4"></video><button class="play" type="button"><span><i></i><span class="label">Acoustic set · 2:37</span></span></button></div>
-              </figure>
+        <div class="player v916"><video preload="none" playsinline poster="video/roaming.webp" src="video/roaming.mp4"></video><button class="play" type="button"><span><i></i><span class="label">Roaming band · 3:24</span></span></button></div>
+      </figure>
     </div>
   </article>
 
-  <div class="dusk" aria-hidden="true"><span class="label">21:45 · si abbassano le luci</span></div>
-
   <article class="tempo t-ink" data-header="dark">
     <div class="wrap grid">
-      <div class="tempo-time"><span class="label">Terzo tempo</span><b>22:30</b><span class="name">Party</span></div>
+      <div class="tempo-time"><span class="label">Proposta</span><b>03</b><span class="name">Party band</span></div>
       <div class="tempo-body rv">
-        <p class="label formula">Formula full band</p>
+        <p class="label formula">Formula party band</p>
         <h3 class="h3">Si accendono le luci, <em>si riempie la pista.</em></h3>
-        <p class="txt">Sette elementi sul palco: batteria, basso, tastiere, chitarra, fiati e due voci soliste. Il meglio di quarant'anni di pop, disco e soul, con l'energia di un concerto.</p>
-        <ul class="ticks"><li>Band completa, 7 elementi</li><li>Due voci soliste</li><li>Scaletta costruita con voi</li></ul>
+        <p class="txt">Sette elementi sul palco: batteria, basso, tastiere, chitarra, tromba e due voci soliste. Il meglio di quarant'anni di pop, disco e soul, con l'energia di un concerto.</p>
+        <ul class="ticks"><li>Band completa, 7 elementi</li><li>Repertorio disco, funk, pop</li><li>Ideale per il party in pista da ballo</li></ul>
       </div>
       <figure class="tempo-media rv" style="--d:.1s">
         <div class="player v169"><video preload="none" playsinline poster="video/live.webp" src="video/live.mp4"></video><button class="play" type="button"><span><i></i><span class="label">Live show · 1:39</span></span></button></div>
-              </figure>
-    </div>
-  </article>
-
-  <article class="tempo t-ink" data-header="dark">
-    <div class="wrap grid">
-      <div class="tempo-time"><span class="label">Gran finale</span><b>00:30</b><span class="name">Ultimo ballo</span></div>
-      <div class="tempo-body rv">
-        <p class="label formula">All night long</p>
-        <h3 class="h3">Finché c'è qualcuno <em>in pista.</em></h3>
-        <p class="txt">Il finale è fatto dei pezzi che tutti cantano a squarciagola. Di solito è qui che le scarpe finiscono sotto i tavoli.</p>
-      </div>
-      <figure class="tempo-media narrow rv" style="--d:.1s">
-        <div class="player v916"><video preload="none" playsinline poster="video/all-night-long.webp" src="video/all-night-long.mp4"></video><button class="play" type="button"><span><i></i><span class="label">All Night Long · 2:58</span></span></button></div>
         <figcaption class="label"><a href="https://www.youtube.com/@SparklingPockets" target="_blank" rel="noopener">Altri video su YouTube ↗</a></figcaption>
       </figure>
     </div>
@@ -606,20 +594,21 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
   <div class="per t-ink" data-header="dark">
     <div class="wrap grid">
       <p class="label">Suoniamo per</p>
-      <ul><li>Matrimoni</li><li>Feste private</li><li>Eventi aziendali</li><li>Serate nei locali</li></ul>
-      <p class="note">Gli orari sono indicativi: ogni serata la costruiamo su misura, insieme a voi.</p>
+      <ul><li>Matrimoni</li><li>Feste private</li><li>Eventi aziendali</li><li>Locali, pub e ristoranti</li></ul>
+      <p class="note">Ogni serata la costruiamo su misura, insieme a voi.</p>
     </div>
   </div>
 </section>
 
 <!-- ═════════════ GALLERIA EVENTI ═════════════ -->
 <!-- Per aggiungere una foto: copia un <figure> e cambia src, width/height e alt. La classe "wide" va sulle foto orizzontali.
-     Su desktop le righe sono piene se (verticali + 2 x orizzontali) è un multiplo di 4. -->
+     Su desktop le righe sono piene se (verticali + 2 x orizzontali) è un multiplo di 4.
+     Solo foto di gruppo, dei live e delle cantanti: niente ritratti singoli dei musicisti. -->
 <section id="galleria" class="gal t-ink" data-header="dark" aria-labelledby="gal-t">
   <div class="wrap">
     <div class="gal-head">
       <div class="gal-title"><p class="label muted">Galleria</p><h2 class="display rv" id="gal-t">Sul palco <em>e fuori scena.</em></h2></div>
-      <p class="rv" style="--d:.08s">Le nostre serate dal vivo e il nostro servizio fotografico. Toccate una foto per vederla a tutto schermo.</p>
+      <p class="rv" style="--d:.08s">Gli scatti dei nostri live e il nostro book.</p>
     </div>
     <div class="gal-grid" id="gal">
       <figure class="wide rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/live-voci.webp" width="1600" height="1066" loading="lazy" alt="Le due cantanti sul palco, con il chitarrista alle loro spalle, in un locale illuminato da luci calde."></button></figure>
@@ -628,15 +617,10 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
       <figure class="rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/ritratto-7023-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto di una delle cantanti in abito di paillettes."></button></figure>
       <figure class="wide rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/band-giardino-900.webp" width="900" height="600" loading="lazy" alt="La band in giardino, le cantanti con una gamba alzata e il chitarrista con la sua Telecaster."></button></figure>
       <figure class="rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/ritratto-7119-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto di una delle cantanti in abito color rame."></button></figure>
-      <figure class="rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/ritratto-7215-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto del chitarrista con la chitarra a tracolla."></button></figure>
-      <figure class="rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/ritratto-7152-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto di un musicista con gilet, a braccia conserte, davanti a un clavicembalo."></button></figure>
       <figure class="wide rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/band-scalinata-800.webp" width="800" height="533" loading="lazy" alt="La band in posa su una scalinata coperta d'edera."></button></figure>
-      <figure class="rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/ritratto-6911-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto di un musicista in giacca nera appoggiato a una colonna."></button></figure>
-      <figure class="rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/ritratto-7059-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto di una delle cantanti mentre canta al microfono."></button></figure>
-      <figure class="rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/ritratto-6980-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto di un musicista in giacca blu."></button></figure>
-      <figure class="rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/ritratto-7192-800.webp" width="800" height="1200" loading="lazy" alt="Ritratto di un musicista con gilet davanti a una finestra."></button></figure>
+      <figure class="wide rv"><button type="button" aria-label="Apri la foto a tutto schermo"><img src="assets/voci-piano-800.webp" width="1400" height="933" loading="lazy" alt="Le due cantanti accanto a un pianoforte d'epoca, una in abito fucsia e l'altra in nero."></button></figure>
     </div>
-    <div class="gal-more"><button class="btn btn-line" type="button" id="gal-more">Vedi tutte le foto (13) <span class="arr" aria-hidden="true">↓</span></button></div>
+    <div class="gal-more"><button class="btn btn-line" type="button" id="gal-more">Vedi tutte le foto (8) <span class="arr" aria-hidden="true">↓</span></button></div>
   </div>
 </section>
 
@@ -654,7 +638,7 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
     <div class="wrap grid">
       <figure class="photo rv">
         <img src="assets/band-biliardo-900.webp" srcset="assets/band-biliardo-900.webp 900w, assets/band-biliardo-1600.webp 1600w" sizes="(min-width:860px) 50vw, 100vw" width="1600" height="1067" loading="lazy" alt="La band intorno a un tavolo da biliardo in una biblioteca, con le due cantanti in primo piano.">
-        <figcaption class="label">La band al completo</figcaption>
+        <figcaption class="label">Gli Sparkling Pockets</figcaption>
       </figure>
       <div class="bill">
         <p class="label muted">La line-up</p>
@@ -662,7 +646,7 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
         <ol class="roster">
           <li class="rv"><span class="who">Krensly Taveras</span><span class="what label">Voce</span></li>
           <li class="rv"><span class="who">Federica Rini</span><span class="what label">Voce</span></li>
-          <li class="rv"><span class="who">Angelo Torregrossa</span><span class="what label">Fiati</span></li>
+          <li class="rv"><span class="who">Angelo Torregrossa</span><span class="what label">Tromba</span></li>
           <li class="rv"><span class="who">Matteo Ghiringhelli</span><span class="what label">Chitarra</span></li>
           <li class="rv"><span class="who">Mattia Rizzato</span><span class="what label">Tastiere</span></li>
           <li class="rv"><span class="who">Marco Brambilla</span><span class="what label">Basso</span></li>
@@ -679,18 +663,18 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
   <div class="wrap grid">
     <div class="rep-head">
       <p class="label">Repertorio</p>
-      <h2 class="display rv" id="rep-t" style="margin-top:14px">Il lato A, il lato B <em>e tutto quello in mezzo.</em></h2>
+      <h2 class="display rv" id="rep-t" style="margin-top:14px">Il lato A, il lato B: <em>ecco i nostri brani.</em></h2>
     </div>
     <div class="rep-intro">
-      <p class="rv">Dal ballo scatenato al chill-out, abbiamo una lista enorme di successi: scegliete voi i vostri preferiti e li sentirete dal vivo come non li avete mai sentiti.</p>
-      <a class="btn btn-solid rv" href="mailto:sparklingpockets@gmail.com?subject=Richiesta%20scaletta%20completa">Chiedi la scaletta completa <span class="arr" aria-hidden="true">→</span></a>
-      <div class="vinyl" id="vinyl" aria-hidden="true"><div class="disc"></div><div class="lbl"><img src="assets/logo-s.webp" alt=""><span class="label">Party &amp; More</span></div></div>
+      <p class="rv">Da un aperitivo soft al ballo scatenato, abbiamo una lista enorme di successi.</p>
+      <a class="btn btn-solid rv" href="#contatti">Contattaci <span class="arr" aria-hidden="true">→</span></a>
+      <div class="vinyl" id="vinyl" aria-hidden="true"><div class="disc"></div><div class="lbl"><img src="assets/logo-s.webp" alt=""></div></div>
     </div>
     <div class="tracks">
       <div class="sides" role="tablist" aria-label="Generi">
-        <button role="tab" aria-selected="true" aria-controls="tracklist" data-side="a"><b>Lato A</b><span class="label">Disco</span></button>
-        <button role="tab" aria-selected="false" aria-controls="tracklist" data-side="b" tabindex="-1"><b>Lato B</b><span class="label">Soul &amp; funk</span></button>
-        <button role="tab" aria-selected="false" aria-controls="tracklist" data-side="c" tabindex="-1"><b>Lato C</b><span class="label">Pop</span></button>
+        <button role="tab" aria-selected="true" aria-controls="tracklist" data-side="a"><b>Disco</b><span class="label">Dance</span></button>
+        <button role="tab" aria-selected="false" aria-controls="tracklist" data-side="b" tabindex="-1"><b>Soul, funk, R&amp;B</b><span class="label">Smooth</span></button>
+        <button role="tab" aria-selected="false" aria-controls="tracklist" data-side="c" tabindex="-1"><b>Pop</b><span class="label">Enjoy</span></button>
       </div>
       <ol class="tracklist" id="tracklist" role="tabpanel" aria-live="polite"></ol>
       <p class="rep-note">Solo un assaggio: la lista completa è molto più lunga.</p>
@@ -707,11 +691,10 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
       <p>Non trovate la risposta? Scriveteci a <a href="mailto:sparklingpockets@gmail.com">sparklingpockets@gmail.com</a>.</p>
     </div>
     <div class="qa">
-      <details><summary>Che genere di musica suonate?<i aria-hidden="true"></i></summary><p class="a">Pop, disco, soul e funk degli ultimi quarant'anni: i pezzi che tutti conoscono e che fanno ballare tutte le generazioni. Per aperitivi e cene proponiamo anche una playlist più morbida e ambient.</p></details>
-      <details><summary>Possiamo scegliere le canzoni?<i aria-hidden="true"></i></summary><p class="a">Sì. Vi mandiamo la nostra lista e scegliete i vostri preferiti, dai momenti più tranquilli a quelli più scatenati. La scaletta la costruiamo insieme.</p></details>
-      <details><summary>Avete una formazione più piccola?<i aria-hidden="true"></i></summary><p class="a">Sì, su richiesta suoniamo in formazione acustica ridotta: perfetta per cerimonie, aperitivi e cene, o dove lo spazio è limitato.</p></details>
-      <details><summary>Portate impianto audio e luci?<i aria-hidden="true"></i></summary><p class="a">Sì, portiamo noi impianto audio e luci: a voi non resta che pensare agli ospiti.</p></details>
-      <details><summary>Quanto costa?<i aria-hidden="true"></i></summary><p class="a">Ogni serata è diversa: il preventivo dipende dalla formazione, dalla durata e dal luogo. Scriveteci data e location e vi mandiamo una proposta su misura.</p></details>
+      <details><summary>Possiamo scegliere le canzoni?<i aria-hidden="true"></i></summary><p class="a">Sì. Vi inviamo la nostra lista completa e potete scegliere i brani che preferite, dai momenti più tranquilli a quelli più scatenati. Possiamo darvi i giusti suggerimenti, secondo la nostra esperienza.</p></details>
+      <details><summary>Avete una formazione più piccola?<i aria-hidden="true"></i></summary><p class="a">Sì, su richiesta suoniamo in formazione ridotta: perfetta per cerimonie, aperitivi e cene, o dove lo spazio è limitato. Quando richiesto possiamo adattarci in situazioni acustiche, semiacustiche e roaming band.</p></details>
+      <details><summary>Portate impianto audio e luci?<i aria-hidden="true"></i></summary><p class="a">Se l'organizzazione dell'evento non li mette a disposizione, sì: con un costo aggiuntivo possiamo contattare i nostri collaboratori e portare noi impianto audio e luci. A voi non resta che pensare agli ospiti.</p></details>
+      <details><summary>Quanto costa?<i aria-hidden="true"></i></summary><p class="a">Ogni serata è diversa: il preventivo dipende dalla formazione, dalla durata, dal luogo e dall'organizzazione dell'impianto audio e luci. Contattateci per avere un preventivo su misura.</p></details>
     </div>
   </div>
 </section>
@@ -767,7 +750,7 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
 <footer class="foot t-ink" data-header="dark">
   <div class="wrap">
     <div class="cols">
-      <div><p class="label">Sparkling Pockets</p><p style="max-width:34ch">Party band di sette elementi. Pop, disco e soul dal vivo per matrimoni, feste ed eventi.</p></div>
+      <div><p class="label">Sparkling Pockets</p><p style="max-width:34ch">Party band di sette elementi. Pop, disco, funk e soul dal vivo per matrimoni, feste ed eventi.</p></div>
       <div><p class="label">Scriveteci</p><ul><li><a href="mailto:sparklingpockets@gmail.com">sparklingpockets@gmail.com</a></li><li><a href="#contatti">Verifica la data</a></li></ul></div>
       <div><p class="label">Seguiteci</p><ul><li><a href="https://www.instagram.com/sparkling_pockets" target="_blank" rel="noopener">Instagram ↗</a></li><li><a href="https://www.youtube.com/@SparklingPockets" target="_blank" rel="noopener">YouTube ↗</a></li></ul></div>
     </div>
@@ -883,9 +866,9 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
 
   /* repertoire */
   const sides = {
-    a: [['Disco Inferno', 'The Trammps'], ["Stayin' Alive", 'Bee Gees'], ['September', 'Earth, Wind & Fire'], ['I Will Survive', 'Gloria Gaynor'], ['Last Dance', 'Donna Summer']],
-    b: [['Valerie', 'Amy Winehouse'], ['Superstition', 'Stevie Wonder'], ['Respect', 'Aretha Franklin'], ['Uptown Funk', 'Mark Ronson ft. Bruno Mars'], ["Ain't No Sunshine", 'Bill Withers']],
-    c: [['Levitating', 'Dua Lipa'], ["Can't Stop the Feeling!", 'Justin Timberlake'], ['Happy', 'Pharrell Williams'], ['Shut Up and Dance', 'Walk the Moon']]
+    a: [['Disco Inferno', 'The Trammps'], ["Stayin' Alive", 'Bee Gees'], ['September', 'Earth, Wind & Fire'], ['I Will Survive', 'Gloria Gaynor'], ['Lady Marmalade', 'Labelle']],
+    b: [['Valerie', 'Amy Winehouse'], ['Superstition', 'Stevie Wonder'], ['Uptown Funk', 'Mark Ronson ft. Bruno Mars'], ['Natural Woman', 'Aretha Franklin'], ["If I Ain't Got You", 'Alicia Keys']],
+    c: [['Levitating', 'Dua Lipa'], ["Can't Stop the Feeling!", 'Justin Timberlake'], ['Happy', 'Pharrell Williams'], ['Mamma Mia', 'ABBA']]
   };
   const list = $('#tracklist'), tabs = $$('.sides button');
   const showSide = k => {
