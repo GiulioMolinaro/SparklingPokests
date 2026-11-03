@@ -1,0 +1,7 @@
+[build]
+  command = "python3 build.py"
+  publish = "dist"
+
+[build.environment]
+  # build.py uses shutil.rmtree(onexc=...), added in Python 3.12
+  PYTHON_VERSION = "3.13"

@@ -6,8 +6,8 @@
 <title>Sparkling Pockets · Party band per matrimoni, feste ed eventi</title>
 <meta name="description" content="Sparkling Pockets è una party band di sette elementi con due voci soliste: pop, disco, funk e soul degli ultimi quarant'anni dal vivo, per matrimoni, feste private, eventi aziendali, locali e ristoranti. Anche in formazione acustica e roaming.">
 <meta name="theme-color" content="#141015">
-<link rel="icon" href="assets/favicon.png" type="image/png">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="icon" href="assets/favicon.png?v=sp" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=sp">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sparkling Pockets · Party & More">
 <meta property="og:description" content="Sette musicisti, due voci e quarant'anni di pop, disco, funk e soul dal vivo. Per matrimoni, feste ed eventi.">
@@ -115,9 +115,10 @@ button,input,select,textarea{font:inherit;color:inherit}
 .hdr.dark{color:var(--ink-text)}
 .hdr.dark.scrolled{background:color-mix(in srgb, var(--ink) 86%, transparent);box-shadow:0 1px 0 var(--ink-line)}
 .hdr .wrap{height:100%;display:flex;align-items:center;gap:28px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--serif);font-weight:600;font-size:1.12rem;letter-spacing:-.01em;white-space:nowrap;opacity:0;transform:translateY(-6px);transition:opacity .4s,transform .4s;pointer-events:none}
-.hdr.scrolled .brand,.hdr.menu-open .brand{opacity:1;transform:none;pointer-events:auto}
-.brand img{height:34px;width:auto;margin-top:-6px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--serif);font-weight:600;font-size:1.12rem;letter-spacing:-.01em;white-space:nowrap}
+.brand img{height:40px;width:auto}
+.brand .on-dark,.hdr.dark .brand .on-light{display:none}
+.hdr.dark .brand .on-dark{display:block}
 .nav{margin-left:auto;display:flex;align-items:center;gap:clamp(16px,2.2vw,34px)}
 .nav a{text-decoration:none;font-stretch:75%;font-weight:600;font-size:var(--t-ui);letter-spacing:.14em;text-transform:uppercase;position:relative;padding:4px 0}
 .nav a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1.5px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
@@ -141,7 +142,6 @@ button,input,select,textarea{font:inherit;color:inherit}
 /* ───────────────────────── hero (cover) ───────────────────────── */
 .mast.logo{width:100%;padding:0;margin:0 0 clamp(14px,1.8vw,26px);font-size:0;line-height:0;letter-spacing:0;white-space:normal}
 .mast.logo img{width:100%;height:auto;display:block}
-@media(min-width:861px){.mast.logo{max-width:min(100%,1010px)}}
 .t-ink .hero-foot .lead em{color:var(--fuchsia-hi)}
 .hero{padding-top:calc(var(--header) + 6px)}
 .cover-strip{display:flex;justify-content:space-between;gap:16px;padding:10px 0 14px;border-bottom:1px solid var(--line)}
@@ -333,6 +333,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .direct .label{color:var(--muted)}
 
 form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-columns:1fr 1fr;gap:28px 22px}
+form.book[hidden]{display:none}
 .f{display:flex;flex-direction:column;gap:8px}
 .f.full{grid-column:1 / -1}
 .f > label,.f > .lg{color:var(--muted)}
@@ -465,7 +466,7 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
 
 <header class="hdr" id="hdr">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Sparkling Pockets, torna all'inizio"><img src="assets/logo-s.webp" alt="" width="56" height="80">Sparkling Pockets</a>
+    <a class="brand" href="#top" aria-label="Sparkling Pockets, torna all'inizio"><img class="on-light" src="assets/logo-mono-dark.webp" alt="" width="252" height="240"><img class="on-dark" src="assets/logo-mono.webp" alt="" width="252" height="240"></a>
     <nav class="nav" aria-label="Principale">
       <a href="#proposte">Proposte</a>
       <a href="#galleria">Galleria</a>
@@ -501,7 +502,7 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
       <span>Matrimoni, feste, eventi</span>
     </div>
     <div class="mast-wrap">
-      <h1 class="mast logo" id="mast"><img src="assets/logo-scritta-1600.webp" srcset="assets/logo-scritta-800.webp 800w, assets/logo-scritta-1600.webp 1600w" sizes="(min-width:1400px) 1288px, calc(100vw - 32px)" width="1600" height="380" alt="Sparkling Pockets" fetchpriority="high"></h1>
+      <h1 class="mast logo" id="mast"><img src="assets/logo-scritta.webp" width="1248" height="146" alt="Sparkling Pockets" fetchpriority="high"></h1>
     </div>
     <figure class="cover">
       <img src="assets/band-palazzo-1200.webp" srcset="assets/band-palazzo-1200.webp 1200w, assets/band-palazzo-2400.webp 2400w" sizes="(min-width:1400px) 1400px, 100vw" width="2400" height="1601" alt="I sette musicisti degli Sparkling Pockets seduti su una panca in un salone affrescato: le due cantanti in abito fucsia e pantaloni blu, i musicisti in completo nero." fetchpriority="high">
@@ -668,7 +669,7 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
     <div class="rep-intro">
       <p class="rv">Da un aperitivo soft al ballo scatenato, abbiamo una lista enorme di successi.</p>
       <a class="btn btn-solid rv" href="#contatti">Contattaci <span class="arr" aria-hidden="true">→</span></a>
-      <div class="vinyl" id="vinyl" aria-hidden="true"><div class="disc"></div><div class="lbl"><img src="assets/logo-s.webp" alt=""></div></div>
+      <div class="vinyl" id="vinyl" aria-hidden="true"><div class="disc"></div><div class="lbl"><img src="assets/logo-mono-dark.webp" alt=""></div></div>
     </div>
     <div class="tracks">
       <div class="sides" role="tablist" aria-label="Generi">
@@ -708,8 +709,7 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
       <p>Che sia un matrimonio, una festa privata, un evento aziendale o una serata in un locale, raccontateci data e luogo: vi rispondiamo con disponibilità e preventivo al più presto.</p>
     </div>
 
-    <!-- Formspree: sostituire IL_TUO_ID con l'ID del modulo creato su formspree.io (es. https://formspree.io/f/abcdwxyz) -->
-    <form class="book" id="book" action="https://formspree.io/f/IL_TUO_ID" method="POST" novalidate>
+    <form class="book" id="book" action="https://formspree.io/f/mqppgrqd" method="POST" novalidate>
       <div class="f full"><label for="f-date" class="label">Data dell'evento</label><input id="f-date" name="data" type="date" required></div>
       <div class="f full"><span class="label lg" id="lg-tipo">Tipo di evento</span>
         <div class="chips" role="radiogroup" aria-labelledby="lg-tipo">
@@ -901,10 +901,6 @@ form.book{grid-column:7 / span 6;grid-row:1 / span 2;display:grid;grid-template-
     if (!/^\S+@\S+\.\S+$/.test(f.get('email').trim())) miss.push("un'email valida");
     if (miss.length) {
       err.textContent = (miss.length > 1 ? 'Mancano ' : 'Manca ') + miss.join(', ').replace(/, ([^,]*)$/, ' e $1') + '.';
-      return;
-    }
-    if (form.action.includes('IL_TUO_ID')) {
-      err.textContent = 'Il modulo non è ancora collegato. Scriveteci a sparklingpockets@gmail.com.';
       return;
     }
     err.textContent = '';

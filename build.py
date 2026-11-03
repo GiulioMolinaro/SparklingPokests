@@ -3,7 +3,7 @@
 Usage: python build.py
 Minifies index.html (comments and whitespace in HTML, CSS and JS), copies
 only the folders the page needs, then zips the result with index.html at the
-root, ready for the 0sei Digital gestionale upload (max 50 MB, 300 files).
+root. Netlify publishes dist/ (see netlify.toml); the zip is for manual uploads.
 """
 import os
 import re
@@ -18,8 +18,6 @@ ROOT = Path(__file__).parent
 DIST = ROOT / 'dist'
 ZIP = ROOT / 'dist.zip'
 ASSET_DIRS = ['assets', 'video']
-MAX_ZIP_BYTES = 50 * 1000 * 1000
-MAX_FILES = 300
 
 
 def minify_css(css):
@@ -81,17 +79,7 @@ def main():
             rel = f.relative_to(DIST).as_posix()
             kind = zipfile.ZIP_DEFLATED if f.suffix in {'.html', '.css', '.js', '.svg'} else zipfile.ZIP_STORED
             z.write(f, rel, compress_type=kind)
-    zip_size = ZIP.stat().st_size
-    print(f'dist.zip: {zip_size / 1e6:.1f} MB, {len(files)} file')
-
-    problems = []
-    if zip_size > MAX_ZIP_BYTES:
-        problems.append(f'lo zip supera 50 MB ({zip_size / 1e6:.1f} MB)')
-    if len(files) > MAX_FILES:
-        problems.append(f'troppi file ({len(files)} su {MAX_FILES})')
-    if problems:
-        sys.exit('ATTENZIONE: ' + '; '.join(problems))
-    print('OK per il gestionale: sotto 50 MB e 300 file')
+    print(f'dist.zip: {ZIP.stat().st_size / 1e6:.1f} MB, {len(files)} file')
 
 
 if __name__ == '__main__':
